@@ -40,5 +40,6 @@
   "devDependencies": {
     "dart-sass": "^1.25.0",
     "sass": "^1.32.8"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
