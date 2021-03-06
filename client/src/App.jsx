@@ -1,8 +1,14 @@
 import './App.scss';
-import { Button, Container} from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Button, Container } from '@material-ui/core';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
 
 function App() {
+  const [count, setCount] = useState([]);
+
+  useEffect(() => {
+    setCount(count + 1);
+  }, []);
   return (
     <div className="App">
       <Container>
