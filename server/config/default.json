@@ -1,4 +1,5 @@
 {
   "port": 3030,
-  "mongoDB": "mongodb+srv://SlavaJSFE:Travel-app-12345@cluster0.nkuya.mongodb.net/travelApp?retryWrites=true&w=majority"
+  "mongoDB": "mongodb+srv://SlavaJSFE:Travel-app-12345@cluster0.nkuya.mongodb.net/travelApp?retryWrites=true&w=majority",
+  "secretKey": "travel-app"
 }
