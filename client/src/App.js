@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Container>
-          <Grid container xs={12} spacing={3}>
+          <Grid container  spacing={3}>
             <Grid item sm={9}>
               <Button
                 className="main-button"
