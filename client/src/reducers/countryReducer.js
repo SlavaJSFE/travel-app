@@ -1,11 +1,16 @@
+const SET_COUNTRY = "SET_COUNTRY";
 
 const defaultState = {
-  currentUser: {},
-  isAuth: false
+  countryS: {}
 }
 
 export default function countryReducer(state = defaultState, action) {
   switch (action.type) {
+    case SET_COUNTRY:
+      return {
+          ...state,
+          countryS: action.payload
+      };
       // case SET_FILES: return {...state, files: action.payload}
       // case SET_CURRENT_DIR: return {...state, currentDir: action.payload}
       // case ADD_FILE: return {...state, files: [...state.files, action.payload]}
@@ -17,3 +22,5 @@ export default function countryReducer(state = defaultState, action) {
           return state
   }
 }
+
+export const setCountry = countryS => ({type: SET_COUNTRY, payload: countryS});
