@@ -27,7 +27,9 @@
   "dependencies": {
     "config": "^3.3.4",
     "express": "^4.17.1",
-    "mongoose": "^5.11.18"
+    "leaflet": "^1.7.1",
+    "mongoose": "^5.11.18",
+    "react-leaflet": "^3.1.0"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",
