@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import countries from '../constants/countries';
+
 import MapComponent from './MapComponent';
 
 export default function CountryPageContent() {
@@ -12,7 +13,7 @@ export default function CountryPageContent() {
   return (
     <div>
       <h2>{country.capital}</h2>
-      <MapComponent center={country.center} />
+      <MapComponent country={country} />
     </div>
   );
 }
