@@ -14,12 +14,12 @@ router.get('/country',
         return res.status(404).json({message: "Country not found"});
       }
       return res.json({
-        user: {
+        // user: {
             country: resCountry.country,
             photo: resCountry.photo,
             capital: resCountry.capital,
             info: resCountry.info
-        }
+        // }
       });
     } catch (e) {
         console.log(e);

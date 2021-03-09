@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.scss';
 import {Grid, Button, Container} from '@material-ui/core';
-import {BrowserRouter, Redirect, Route, Switch, NavLink} from "react-router-dom";
+import {BrowserRouter, Route, Switch, NavLink} from "react-router-dom";
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
 import LogReg from './components/logreg/LogReg';
 import Login from './components/authorization/Login';
@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(auth())
+    dispatch(auth());
   }, []);
 
   return (
@@ -55,7 +55,10 @@ function App() {
         </Container>
         <Container>
           <Switch>
-            <Route path="/country/italy" render={(props) => <Country req="7" />} />
+            <Route path="/country/italy" render={(props) => <Country req="Italy" />} />
+            <Route path="/country/germany" render={(props) => <Country req="8" />} />
+            <Route path="/country/france" render={(props) => <Country req="9" />} />
+            <Route path="/country/polska" render={(props) => <Country req="0" />} />
             {/* <Route path="/country/germany" component={Country("germany")} />
             <Route path="/country/france" component={Country("france")} />
             <Route path="/country/polska" component={Country("polska")} /> */}

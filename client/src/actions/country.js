@@ -1,15 +1,17 @@
 import axios from 'axios';
 import {setCountry} from "../reducers/countryReducer";
 
-export const country =  (country) => {
-  return async dispatch => {
+export const country = async (country) => {
+  return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3030/api/country`,
+      const response = await axios.get(`http://localhost:3030/oth/country`,
           {country}
       );
-      dispatch(setCountry(response.data.country));
+      alert('1 ' + response.data.message);
+      console.log(response.data);
+      dispatch(setCountry(response.data.countries));
     } catch (e) {
-      alert(e.response.data.message);
+      alert('2 ' + e.response.data.message);
     }
   }
 }

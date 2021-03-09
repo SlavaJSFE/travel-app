@@ -14,7 +14,7 @@ const corsMiddleware = require('./middleware/cors.middleware');
 app.use(corsMiddleware);
 app.use(express.json());
 app.use("/api/auth", authRouter);
-app.use("/api", countryRouter);
+app.use("/oth", countryRouter);
 
 async function start() {
   try {

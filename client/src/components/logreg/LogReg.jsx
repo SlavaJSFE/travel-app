@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './LogReg.scss';
 import {NavLink} from "react-router-dom";
 import {Grid, Box, Link} from '@material-ui/core';
