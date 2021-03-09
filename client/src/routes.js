@@ -9,6 +9,7 @@ import NorwayPage from './pages/Norway';
 import PolandPage from './pages/Poland';
 import SwitzerlandPage from './pages/Switzerland';
 import MainPage from './pages/MainPage';
+import CountryPage from './components/CountryPageContent';
 
 export default function useRoutes() {
   return (
@@ -17,7 +18,8 @@ export default function useRoutes() {
         <Route path="/" exact>
           <MainPage />
         </Route>
-        <Route path="/czech" exact>
+        <Route path="/country/:name" component={CountryPage} />
+        {/* <Route path="/czech" exact>
           <CzechPage />
         </Route>
         <Route path="/france" exact>
@@ -40,7 +42,7 @@ export default function useRoutes() {
         </Route>
         <Route path="/switzerland" exact>
           <SwitzerlandPage />
-        </Route>
+        </Route> */}
         <Redirect to="/" />
       </Switch>
     </>
