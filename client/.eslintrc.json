@@ -26,6 +26,7 @@
         "arrow-body-style": "warn",
         "semi": "warn",
         "react/self-closing-comp": "warn",
-        "object-curly-newline": "warn"
+        "object-curly-newline": "warn",
+        "react/destructuring-assignment": "warn"
     }
 }
