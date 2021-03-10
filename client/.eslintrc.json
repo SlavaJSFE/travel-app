@@ -27,6 +27,8 @@
         "semi": "warn",
         "react/self-closing-comp": "warn",
         "object-curly-newline": "warn",
-        "react/destructuring-assignment": "warn"
+        "react/destructuring-assignment": "warn",
+        "react/prop-types": "off",
+        "max-len": "warn"
     }
 }
