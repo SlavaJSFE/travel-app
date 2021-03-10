@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import countries from '../constants/countries';
+import CapitalDateTime from './CapitalDateTime';
 
 export default function CountryPageContent() {
   const { name } = useParams();
@@ -12,6 +13,7 @@ export default function CountryPageContent() {
   return (
     <div>
       <h2>{country.capital}</h2>
+      <CapitalDateTime />
     </div>
   );
 }
