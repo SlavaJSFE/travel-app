@@ -23,6 +23,17 @@ const createLayer = (currentCountry) => {
   return newJson;
 };
 
+const btnStyles = {
+  position: 'absolute',
+  zIndex: 1000,
+  top: 80,
+  left: 10,
+  background: '#fff',
+  color: '#212121',
+  fontSize: '18px',
+  padding: 10,
+};
+
 export default function MapComponent({ country }) {
   const [FS, setFS] = useState(false);
   const { name, center } = country;
@@ -34,8 +45,6 @@ export default function MapComponent({ country }) {
     const fs = map.fullscreenElement;
     setFS(fs);
   }, [map, setFS]);
-
-  console.log(mapRef);
 
   const polygon = createLayer(name);
   const markerIcon = new L.Icon({
@@ -70,19 +79,7 @@ export default function MapComponent({ country }) {
         </Marker>
       </MapContainer>
       <ToggleButton
-        style={
-          {
-            position: 'absolute',
-            zIndex: 1000,
-            top: 80,
-            left: 10,
-            background: '#fff',
-            color: '#212121',
-            fontSize: '18px',
-            padding: 10,
-          }
-
-        }
+        style={btnStyles}
         onClick={handleClick}
       >
         {
