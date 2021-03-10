@@ -6,12 +6,10 @@ import fetchCurrency from './redux/currency/actions';
 
 const App2 = () => {
   const weatherData = useSelector((state) => state.weather.data);
-  const currencyData = useSelector((state) => state.currency.data);
+  // const currencyData = useSelector((state) => state.currency.data);
   const loadingW = useSelector((state) => state.weather.loading);
   const loadingC = useSelector((state) => state.currency.loading);
   const dispatch = useDispatch();
-
-  console.log(currencyData);
 
   useEffect(() => {
     dispatch(fetchWeather());

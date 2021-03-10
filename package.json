@@ -2,37 +2,27 @@
   "name": "travel-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon app.js",
-    "client": "npm run start --prefix client",
-    "develop": "concurrently \"npm run server\" \"npm run client\""
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SlavaJSFE/travel-app.git"
   },
-  "keywords": [
-    "server",
-    "react",
-    "travel-app"
-  ],
-  "author": "travel app team",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SlavaJSFE/travel-app/issues"
   },
   "homepage": "https://github.com/SlavaJSFE/travel-app#readme",
-  "dependencies": {
-    "config": "^3.3.4",
-    "express": "^4.17.1",
-    "leaflet": "^1.7.1",
-    "mongoose": "^5.11.18",
-    "react-leaflet": "^3.1.0"
-  },
   "devDependencies": {
     "concurrently": "^6.0.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "dependencies": {}
 }

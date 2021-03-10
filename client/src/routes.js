@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import CountryPage from './pages/CountryPage';
