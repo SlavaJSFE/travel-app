@@ -1,30 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import countries from '../constants/countries';
 
-export default class CapitalDateTime extends Component {
-  calcTime = (hour) => {
+export default function CapitalDateTime() {
+  const { name } = useParams();
+  const country = countries.find((el) => el.name.toLowerCase() === name);
+
+  // function componentDidUpdate() {
+
+  // }
+
+  const calcTime = () => {
     const date = new Date();
     const options = {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
       weekday: 'long',
-      // timezone: 'America/New_York',
       timeZoneName: 'short',
-      // timezone: 'UTC+02:00',
-      timezone: 'Asia/Kolkata',
+      timezone: 'America/New_York',
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
     };
-    const resultDate = new Date(+date - hour * 60 * 6e4);
-    return resultDate.toLocaleString('en-US', options);
-  }
+    const hour = country.timeDifference;
+    const resultDate = new Date(+date + hour * 60 * 6e4);
+    return resultDate.toLocaleString('ru-RU', options);
+  };
 
-  render() {
-    return (
-      <div className="">
-        { this.calcTime(2)}
-      </div>
-    );
-  }
+  return (
+    <div className="">
+      { calcTime()}
+    </div>
+  );
 }
