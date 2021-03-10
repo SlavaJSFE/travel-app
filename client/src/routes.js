@@ -1,13 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import CzechPage from './pages/Czech';
-import FrancePage from './pages/France';
-import GermanyPage from './pages/Germany';
-import ItalyPage from './pages/Italy';
-import LatviaPage from './pages/Latvia';
-import NorwayPage from './pages/Norway';
-import PolandPage from './pages/Poland';
-import SwitzerlandPage from './pages/Switzerland';
+// import CzechPage from './pages/Czech';
+// import FrancePage from './pages/France';
+// import GermanyPage from './pages/Germany';
+// import ItalyPage from './pages/Italy';
+// import LatviaPage from './pages/Latvia';
+// import NorwayPage from './pages/Norway';
+// import PolandPage from './pages/Poland';
+// import SwitzerlandPage from './pages/Switzerland';
 import MainPage from './pages/MainPage';
 import CountryPage from './components/CountryPageContent';
 
@@ -43,7 +44,7 @@ export default function useRoutes() {
         <Route path="/switzerland" exact>
           <SwitzerlandPage />
         </Route> */}
-        <Redirect to="/" />
+        {/* <Redirect to="/" /> */}
       </Switch>
     </>
   );

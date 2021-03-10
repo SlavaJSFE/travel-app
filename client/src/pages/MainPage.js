@@ -16,9 +16,6 @@ export default function MainPage() {
               <div className="card-country-capital">{country.capital}</div>
             </div>
           </Link>
-          {/* <a href={path}>
-
-          </a> */}
         </Box>
       );
     });
