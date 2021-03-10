@@ -1,28 +1,31 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
-import {Grid, Button, Container} from '@material-ui/core';
-import {BrowserRouter, Route, Switch, NavLink} from "react-router-dom";
+import { Grid, Button, Container } from '@material-ui/core';
+import {
+  BrowserRouter, Route, Switch, NavLink,
+} from 'react-router-dom';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
+import { useDispatch, useSelector } from 'react-redux';
 import LogReg from './components/logreg/LogReg';
 import Login from './components/authorization/Login';
 import Registration from './components/authorization/Registration';
-import {useDispatch, useSelector} from "react-redux";
-import {auth} from "./actions/user";
+
+import { auth } from './actions/user';
 import Country from './components/countrypage/Country';
 
 function App() {
-  const isAuth = useSelector(state => state.user.isAuth);
+  const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(auth());
-  }, []);
+  });
 
   return (
     <BrowserRouter>
       <div className="App">
         <Container>
-          <Grid container   spacing={3}>
+          <Grid container spacing={3}>
             <Grid item sm={9}>
               <Button
                 className="main-button"
@@ -30,14 +33,14 @@ function App() {
                 color="primary"
                 endIcon={<KeyboardVoiceIcon />}
               >
-              <h3>Travel App</h3>
+                <h3>Travel App</h3>
               </Button>
             </Grid>
             <LogReg />
           </Grid>
         </Container>
         <Container>
-          <Grid container   spacing={3}>
+          <Grid container spacing={3}>
             <Grid item sm={3}>
               <NavLink to="/country/italy">Italy</NavLink>
             </Grid>
@@ -50,27 +53,47 @@ function App() {
             <Grid item sm={3}>
               <NavLink to="/country/polska">Polska</NavLink>
             </Grid>
-            
           </Grid>
         </Container>
         <Container>
           <Switch>
-            <Route path="/country/italy" render={(props) => <Country req="Italy" />} />
-            <Route path="/country/germany" render={(props) => <Country req="8" />} />
-            <Route path="/country/france" render={(props) => <Country req="9" />} />
-            <Route path="/country/polska" render={(props) => <Country req="0" />} />
+            <Route path="/country/italy" render={() => <Country req="Italy" />} />
+            <Route path="/country/germany" render={() => <Country req="8" />} />
+            <Route path="/country/france" render={() => <Country req="9" />} />
+            <Route path="/country/polska" render={() => <Country req="0" />} />
             {/* <Route path="/country/germany" component={Country("germany")} />
             <Route path="/country/france" component={Country("france")} />
             <Route path="/country/polska" component={Country("polska")} /> */}
           </Switch>
         </Container>
-        { !isAuth && <Switch>
+        { !isAuth && (
+        <Switch>
           <Route path="/login" component={Login} />
           <Route path="/registration" component={Registration} />
-        </Switch>}
+        </Switch>
+        )}
       </div>
     </BrowserRouter>
   );
 }
+// import React from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
+// import useRoutes from './routes';
+
+// function App() {
+//   const routes = useRoutes();
+
+//   return (
+//     <div className="App">
+//       <Header />
+//       <Router>
+//         {routes}
+//       </Router>
+//       <Footer color="primary" />
+//     </div>
+//   );
+// }
 
 export default App;

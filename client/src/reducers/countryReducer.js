@@ -1,19 +1,19 @@
-const SET_COUNTRY = "SET_COUNTRY";
+const SET_COUNTRY = 'SET_COUNTRY';
 
 const defaultState = {
-  currentCountry: {}
-}
+  currentCountry: {},
+};
 
 export default function countryReducer(state = defaultState, action) {
   switch (action.type) {
     case SET_COUNTRY:
       return {
-          ...state,
-          currentCountry: action.payload
+        ...state,
+        currentCountry: action.payload,
       };
-      default:
-          return state
+    default:
+      return state;
   }
 }
 
-export const setCountry = countryS => ({type: SET_COUNTRY, payload: countryS});
+export const setCountry = (countryS) => ({ type: SET_COUNTRY, payload: countryS });
