@@ -10,6 +10,8 @@ import countries from '../constants/countries';
 import MapComponent from './MapComponent';
 import WeatherComponent from './WeatherComponent';
 import App2 from '../app2';
+// import { fetchCounrty } from '../redux/actions/country';
+import fetchCountry from '../redux/countryData/actions';
 
 export default function CountryPageContent() {
   const { name } = useParams();
@@ -18,18 +20,20 @@ export default function CountryPageContent() {
   const { capital } = country;
 
   const weatherData = useSelector((state) => state.weather.data);
+  const countryData = useSelector((state) => state.countries.currentCountry);
   // const currencyData = useSelector((state) => state.currency.data);
   const loadingW = useSelector((state) => state.weather.loading);
   const loadingC = useSelector((state) => state.currency.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchCountry());
     Promise.all([
       dispatch(fetchWeather(capital)),
       dispatch((fetchCurrency())),
     ]);
   }, [dispatch, capital]);
-  console.log(loadingW, loadingC, weatherData);
+  console.log(loadingW, loadingC, weatherData, countryData);
 
   return (
     <div>

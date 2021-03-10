@@ -82,6 +82,7 @@ export default function MapComponent({ country }) {
       <ToggleButton
         style={btnStyles}
         onClick={handleClick}
+        value="bold"
       >
         {
         FS ? <FullscreenExit /> : <Fullscreen />

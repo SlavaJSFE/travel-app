@@ -3,7 +3,7 @@ const config = require("config");
 const Country = require("../models/Country");
 const router = new Router();
 
-router.get('/country', 
+router.post('/country', 
   async (req, res) => {
     try {
       const {country} = req.body;
