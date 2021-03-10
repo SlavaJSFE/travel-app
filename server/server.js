@@ -4,7 +4,17 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+const authRouter = require("./routes/auth.routes");
+const countryRouter = require("./routes/country.routes");
+
 const PORT = config.get('port') || 5000;
+
+const corsMiddleware = require('./middleware/cors.middleware');
+
+app.use(corsMiddleware);
+app.use(express.json());
+app.use("/api/auth", authRouter);
+app.use("/oth", countryRouter);
 
 async function start() {
   try {
