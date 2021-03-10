@@ -83,6 +83,7 @@ export default function MapComponent({ country }) {
           }
 
         }
+        value="bold"
         onClick={handleClick}
       >
         {
