@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 // import CzechPage from './pages/Czech';
@@ -43,7 +44,7 @@ export default function useRoutes() {
         <Route path="/switzerland" exact>
           <SwitzerlandPage />
         </Route> */}
-        <Redirect to="/" />
+        {/* <Redirect to="/" /> */}
       </Switch>
     </>
   );

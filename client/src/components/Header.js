@@ -3,6 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import {
   Container, TextField, Button,
 } from '@material-ui/core';
+import LogReg from './logreg/LogReg';
 
 export default function Header() {
   return (
@@ -19,7 +20,7 @@ export default function Header() {
               Language
             </div>
             <div>
-              Authentication
+              <LogReg />
             </div>
           </div>
         </div>
