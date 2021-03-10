@@ -1,7 +1,11 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable no-shadow */
 import axios from 'axios';
-import { setCountry } from '../reducers/countryReducer';
+import { setCountry } from '../Sreducers/countryReducer';
 
-export const country = async ({ country }) => async (dispatch) => {
+export const country = (country) => async (dispatch) => {
   try {
     const response = await axios.get('http://localhost:3030/oth/country',
       { country });

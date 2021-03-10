@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { Grid, Container } from '@material-ui/core';
 import './country.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { country } from '../../actions/country';
 
-const Country = (props) => {
-  const currentCountry = props.req;
+const Country = ({ req }) => {
+  const currentCountry = req;
   // const countries = useSelector(state => state.countries);
   // const currentCapital = useSelector(state => state.countries.countryS.capital);
   // const currentPhoto = useSelector(state => state.countries.counrtyS.photo);
@@ -14,7 +15,7 @@ const Country = (props) => {
 
   useEffect(() => {
     dispatch(country({ currentCountry }));
-  }, [currentCountry]);
+  }, [currentCountry, dispatch]);
 
   // const currentCountry = useSelector(state => state.country.country);
   const currentCapital = useSelector((state) => state.countries.capital);
