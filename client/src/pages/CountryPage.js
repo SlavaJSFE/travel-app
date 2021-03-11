@@ -5,10 +5,12 @@ import { useParams } from 'react-router-dom';
 import CountryPhoto from '../components/CountryPhoto';
 import countries from '../constants/countries';
 import Description from '../components/Description';
+import MapComponent from '../components/MapComponent';
 
 export default function CountryPage() {
   const { name } = useParams();
   const country = countries.find((element) => element.name.toLowerCase() === name);
+  const capital = `The capital: ${country.capital}`;
 
   return (
     <Container>
@@ -20,12 +22,11 @@ export default function CountryPage() {
         </div>
         <div className="main-content">
           <div className="country-name">{country.name}</div>
-          <div className="country-capital">{country.capital}</div>
+          <div className="country-capital">{capital}</div>
           <CountryPhoto image={country.image} />
           <Description />
+          <MapComponent country={country} />
         </div>
-        {/* <h2>{country.capital}</h2>
-         */}
       </div>
     </Container>
   );

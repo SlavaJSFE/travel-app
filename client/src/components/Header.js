@@ -17,10 +17,10 @@ export default function Header() {
           </div>
           <div className="header-links">
             <div>
-              Language
+              <LogReg />
             </div>
             <div>
-              <LogReg />
+              Language
             </div>
           </div>
         </div>

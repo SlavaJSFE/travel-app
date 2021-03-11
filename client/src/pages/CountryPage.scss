@@ -32,11 +32,19 @@ $main-color: #f50057;
   text-decoration: underline #303f9f;
   text-align: center;
 }
+.country-capital {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 .block-photo {
   width: 100%;
   text-align: center;
 
   img {
-    width: 80%;
+    width: 60%;
   }
+}
+.description-component {
+  padding: 20px;
 }
