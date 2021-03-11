@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   weather: weatherReducer,
   currency: currencyReducer,
   user: userReducer,
-  countries: countryReducer,
+  country: countryReducer,
 });
 
 export default rootReducer;

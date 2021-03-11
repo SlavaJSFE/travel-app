@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './authorization.scss';
-import Input from '../../utils/input/Input';
-import { registration } from '../../redux/actions/user';
+import './scss/authorization.scss';
+import Input from '../components/input/Input';
+import { registration } from '../redux/actions/user';
 
 const Registration = () => {
   const [email, setEmail] = useState('');

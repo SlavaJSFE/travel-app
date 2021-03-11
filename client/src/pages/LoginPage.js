@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './authorization.scss';
+import './scss/authorization.scss';
 import { useDispatch } from 'react-redux';
-import Input from '../../utils/input/Input';
-import { login } from '../../redux/actions/user';
+import Input from '../components/input/Input';
+import { login } from '../redux/actions/user';
 
-const Login = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -19,4 +19,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

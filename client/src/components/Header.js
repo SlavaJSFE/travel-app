@@ -3,7 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import {
   Container, TextField, Button,
 } from '@material-ui/core';
-import LogReg from './logreg/LogReg';
+import AuthButtons from './AuthButtons';
 
 export default function Header() {
   return (
@@ -17,10 +17,10 @@ export default function Header() {
           </div>
           <div className="header-links">
             <div>
-              Language
+              <AuthButtons />
             </div>
             <div>
-              <LogReg />
+              Language
             </div>
           </div>
         </div>
