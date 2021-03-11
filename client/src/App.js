@@ -9,7 +9,6 @@ import './App.scss';
 
 function App() {
   const routes = useRoutes();
-  // const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {

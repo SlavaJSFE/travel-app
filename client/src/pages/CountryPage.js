@@ -1,4 +1,4 @@
-import './CountryPage.scss';
+import './scss/CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React from 'react';
 import { useParams } from 'react-router-dom';
