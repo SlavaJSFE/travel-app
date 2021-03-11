@@ -1,50 +1,46 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
-// import CzechPage from './pages/Czech';
-// import FrancePage from './pages/France';
-// import GermanyPage from './pages/Germany';
-// import ItalyPage from './pages/Italy';
-// import LatviaPage from './pages/Latvia';
-// import NorwayPage from './pages/Norway';
-// import PolandPage from './pages/Poland';
-// import SwitzerlandPage from './pages/Switzerland';
+import CountryPage from './pages/CountryPage';
+import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
-import CountryPage from './components/CountryPageContent';
+import Registration from './pages/RegistrationPage';
 
 export default function useRoutes() {
+  const isAuth = useSelector((state) => state.user.isAuth);
+
+  if (isAuth) {
+    return (
+      <>
+        <Switch>
+          <Route path="/" exact>
+            <MainPage />
+          </Route>
+          <Route path="/country/:name">
+            <CountryPage />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </>
+    );
+  }
   return (
     <>
       <Switch>
         <Route path="/" exact>
           <MainPage />
         </Route>
-        <Route path="/country/:name" component={CountryPage} />
-        {/* <Route path="/czech" exact>
-          <CzechPage />
+        <Route path="/country/:name">
+          <CountryPage />
         </Route>
-        <Route path="/france" exact>
-          <FrancePage />
+        <Route path="/login" exact>
+          <LoginPage />
         </Route>
-        <Route path="/germany" exact>
-          <GermanyPage />
+        <Route path="/registration" exact>
+          <Registration />
         </Route>
-        <Route path="/italy" exact>
-          <ItalyPage />
-        </Route>
-        <Route path="/latvia" exact>
-          <LatviaPage />
-        </Route>
-        <Route path="/norway" exact>
-          <NorwayPage />
-        </Route>
-        <Route path="/poland" exact>
-          <PolandPage />
-        </Route>
-        <Route path="/switzerland" exact>
-          <SwitzerlandPage />
-        </Route> */}
-        {/* <Redirect to="/" /> */}
+        <Redirect to="/" />
       </Switch>
     </>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import './country.scss';
 import React, { useEffect } from 'react';
 import { Grid, Container } from '@material-ui/core';
-import './country.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { country } from '../../redux/actions/country';
 

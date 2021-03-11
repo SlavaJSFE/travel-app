@@ -6,10 +6,10 @@ import countries from '../constants/countries';
 export default function MainPage() {
   function createCards() {
     return countries.map((country) => {
-      const path = `${country.name.toLowerCase()}`;
+      const path = `country/${country.name.toLowerCase()}`;
       return (
         <Box className="country-card" boxShadow={3} key={country.name}>
-          <Link to={`country/${path}`}>
+          <Link to={path}>
             <img src={country.image} alt={country.name} />
             <div className="card-names">
               <div className="card-country-name" color="secondary.main">{country.name}</div>
