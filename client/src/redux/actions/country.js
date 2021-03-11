@@ -5,9 +5,9 @@
 import axios from 'axios';
 import { setCountry } from '../Sreducers/countryReducer';
 
-export const country = (country) => async (dispatch) => {
+const fetchCountry = (country) => (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3030/oth/country',
+    const response = axios.get('http://localhost:3030/oth/country',
       { country });
     alert(`1 ${response.data.message}`);
     console.log(response.data);
@@ -16,3 +16,5 @@ export const country = (country) => async (dispatch) => {
     alert(`2 ${e.response.data.message}`);
   }
 };
+
+export default fetchCountry;
