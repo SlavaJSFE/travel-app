@@ -49,9 +49,10 @@ export default function CountryPage() {
   const { info } = countryData;
 
   return (
-    <Container>
+    <Container style={{ textAlign: 'center' }}>
+
       {
-        loading ? <BeatLoader /> : (
+        loading ? <BeatLoader size={25} color="fuchsia" /> : (
           <div className="country-page">
             <div className="side-bar">
               <div className="clock-widget" />

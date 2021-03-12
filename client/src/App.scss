@@ -108,3 +108,10 @@ h3 {
 .rss-logo {
   width: 90px;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
