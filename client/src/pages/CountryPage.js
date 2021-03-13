@@ -12,6 +12,7 @@ import MapComponent from '../components/MapComponent';
 import WeatherComponent from '../components/WeatherComponent';
 import CurrencyWidget from '../components/CurrencyWidget';
 import CapitalDateTime from '../components/CapitalDateTime';
+import VideoComponent from '../components/VideoComponent';
 
 import fetchWeather from '../redux/weather/actions';
 import fetchCurrency from '../redux/currency/actions';
@@ -62,6 +63,7 @@ export default function CountryPage() {
               <CapitalDateTime country={country} />
               <CountryPhoto image={country.image} />
               <Description />
+              <VideoComponent />
               <MapComponent country={country} />
             </div>
           </div>
