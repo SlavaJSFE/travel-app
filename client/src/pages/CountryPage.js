@@ -6,6 +6,7 @@ import CountryPhoto from '../components/CountryPhoto';
 import countries from '../constants/countries';
 import Description from '../components/Description';
 import MapComponent from '../components/MapComponent';
+import CapitalDateTime from '../components/CapitalDateTime';
 
 export default function CountryPage() {
   const { name } = useParams();
@@ -23,6 +24,7 @@ export default function CountryPage() {
         <div className="main-content">
           <div className="country-name">{country.name}</div>
           <div className="country-capital">{capital}</div>
+          <CapitalDateTime country={country} />
           <CountryPhoto image={country.image} />
           <Description />
           <MapComponent country={country} />
