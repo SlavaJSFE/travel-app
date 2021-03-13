@@ -35,6 +35,6 @@ export const auth = () => async (dispatch) => {
     dispatch(setUser(response.data.user));
     localStorage.setItem('token', response.data.token);
   } catch (e) {
-    localStorage.removeItem('token');
+    // localStorage.removeItem('token');
   }
 };

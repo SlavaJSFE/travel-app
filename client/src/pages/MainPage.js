@@ -2,6 +2,7 @@ import { Container, Box } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import countries from '../constants/countries';
+import './scss/MainPage.scss';
 
 export default function MainPage() {
   function createCards() {

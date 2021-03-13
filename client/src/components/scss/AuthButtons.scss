@@ -1,0 +1,17 @@
+@import '../../constants/colors.scss';
+
+.auth-buttons {
+  display: flex;
+  column-gap: 10px;
+  color: $basic-color;
+  margin-right: 15px;
+
+  a {
+    text-decoration: none;
+  }
+}
+.divider {
+  width: 2px;
+  height: 100%;
+  background-color: $basic-color;
+}
