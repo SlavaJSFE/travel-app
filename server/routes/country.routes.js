@@ -3,11 +3,11 @@ const config = require("config");
 const Country = require("../models/Country");
 const router = new Router();
 
-router.get('/country', 
+router.post('/country', 
   async (req, res) => {
     try {
       const {country} = req.body;
-      console.log(country);
+      // console.log(country);
       const resCountry = await Country.findOne({country: country});
       console.log(resCountry);
       if (!resCountry) {
@@ -18,7 +18,8 @@ router.get('/country',
             country: resCountry.country,
             photo: resCountry.photo,
             capital: resCountry.capital,
-            info: resCountry.info
+            info: resCountry.info,
+            gallery: resCountry.gallery
         // }
       });
     } catch (e) {

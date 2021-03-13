@@ -1,0 +1,30 @@
+.map{
+    &__container {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    &__btn {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        z-index: 1000;
+
+        top: 80px;
+        left: 10px;
+    }
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
+

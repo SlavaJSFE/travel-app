@@ -5,6 +5,7 @@ const Country = new Schema({
     photo: {type: String, required: true},
     capital: {type: String, required: true},
     info: {type: String, required: true},
+    gallery: [{type: String}],
 });
 
 module.exports = model('Country', Country);

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const SET_COUNTRY = 'SET_COUNTRY';
 
 const defaultState = {
@@ -16,4 +17,7 @@ export default function countryReducer(state = defaultState, action) {
   }
 }
 
-export const setCountry = (countryS) => ({ type: SET_COUNTRY, payload: countryS });
+export const setCountry = (countryS) => {
+  console.log(countryS);
+  return { type: SET_COUNTRY, payload: countryS };
+};

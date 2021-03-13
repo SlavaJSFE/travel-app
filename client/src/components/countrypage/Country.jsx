@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Grid, Container } from '@material-ui/core';
 import './country.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { country } from '../../actions/country';
+import { country } from '../../redux/actions/country';
 
 const Country = ({ req }) => {
   const currentCountry = req;
