@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/prop-types */
 import React, { useRef, useEffect, useState } from 'react';
 import L from 'leaflet';
 import {
@@ -15,7 +14,7 @@ import loc from '../assets/images/place.svg';
 import geoJson from '../constants/geoJson.json';
 
 import 'leaflet/dist/leaflet.css';
-import '../scss/map.scss';
+import './scss/MapComponent.scss';
 
 const createLayer = (currentCountry) => {
   const polygon = geoJson.features.find((el) => el.properties.name === currentCountry);

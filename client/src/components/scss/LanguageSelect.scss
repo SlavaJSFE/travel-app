@@ -1,0 +1,23 @@
+@import '../../constants/colors.scss';
+
+.language {
+  display: flex;
+  align-items: flex-start;
+}
+.language-select {
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin-top: 5px;
+}
+.language-select:hover {
+  cursor: pointer;
+}
+.language-select:focus {
+  outline: none;
+  color: $footer-color;
+}
+.language-icon {
+  margin-top: 3px;
+  margin-right: 5px;
+}
