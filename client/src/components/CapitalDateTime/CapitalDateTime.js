@@ -1,7 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import './CapitalDateTime.scss';
 
 export default function CapitalDateTime({ country }) {
+  const classDateTime = {
+    day: 'capitalDateTime-common__day',
+    month: 'capitalDateTime-common__month',
+    year: 'capitalDateTime-common__year',
+    time: 'capitalDateTime-common__time',
+  };
+
   const calcTime = () => {
     const date = new Date();
     const options = {
@@ -26,20 +34,12 @@ export default function CapitalDateTime({ country }) {
       return el;
     };
 
-    const classDateTime = {
-      day: 'dayCapitalDateTime',
-      month: 'monthCapitalDateTime',
-      year: 'yearCapitalDateTime',
-      time: 'timeCapitalDateTime',
-    };
-
     const resultDate = preResultDate.map((el) => (
       <p className={`${el === preResultDate[0] ? Object.values(classDateTime)[0] : ''}${el === preResultDate[1] ? Object.values(classDateTime)[1] : ''}${el === preResultDate[2] ? Object.values(classDateTime)[2] : ''}${el === preResultDate[3] ? Object.values(classDateTime)[3] : ''}`}>
         {el === preResultDate[1] ? separatorMonthDay(el) : el}
       </p>
     ));
     // eslint-disable-next-line no-console
-    console.log(resultDate);
     return resultDate;
   };
 
@@ -56,10 +56,10 @@ export default function CapitalDateTime({ country }) {
   }, [currentTime]);
 
   return (
-    <div>
-      <h2>
+    <div className="capitalDateTime">
+      <div className="capitalDateTime-common">
         {calcTime()}
-      </h2>
+      </div>
     </div>
   );
 }
