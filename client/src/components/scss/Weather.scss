@@ -1,0 +1,44 @@
+.weather {
+   &__temperature {
+       font-size: 4rem;
+       color: #586A6A; 
+
+       span {
+           font-size: 12px;
+       }
+   } 
+
+   &__city {
+       font-size: 2rem;
+       color: #586A6A;
+   }
+
+   &__right,  &__left {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       align-items: flex-start;
+       
+   }
+   &__left{
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 30%;
+   }
+
+   &__description {
+    text-align: right;
+    font-size: 10px;
+   }
+}
+
+.weather-widget {
+    display: flex;
+    justify-content: space-between;
+    // padding: 5px;
+}
+
+.owf {
+    font-size: 60px;
+    color: #586A6A;
+}
