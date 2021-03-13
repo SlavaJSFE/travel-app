@@ -11,6 +11,7 @@ import Description from '../components/Description';
 import MapComponent from '../components/MapComponent';
 import WeatherComponent from '../components/WeatherComponent';
 import CurrencyWidget from '../components/CurrencyWidget';
+import CapitalDateTime from '../components/CapitalDateTime';
 
 import fetchWeather from '../redux/weather/actions';
 import fetchCurrency from '../redux/currency/actions';
@@ -49,7 +50,6 @@ export default function CountryPage() {
 
   return (
     <Container>
-
       {
         loading ? <BeatLoader size={25} color="fuchsia" /> : (
           <div className="country-page">
@@ -61,14 +61,15 @@ export default function CountryPage() {
             <div className="main-content">
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
+              <CapitalDateTime country={country} />
               <CountryPhoto image={country.image} />
               <Description />
               <MapComponent country={country} />
             </div>
           </div>
         )
-      }
-
+}
     </Container>
+
   );
 }

@@ -3,28 +3,44 @@
 import React from 'react';
 import './scss/AuthButtons.scss';
 import { Link } from 'react-router-dom';
-import { Grid, Box } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '@material-ui/core';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { logout } from '../redux/Sreducers/userReducer';
 
-const LogReg = () => {
+const AuthButtons = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
 
-  return (
-    <Grid item sm={3}>
-      <Box>
-        { !isAuth && <div className="navbar__login"><Link to="/login">Log In</Link></div> }
-        { !isAuth && <div className="navbar__registration"><Link to="/registration">Sign Up</Link></div> }
-        {isAuth && (
-          <div className="navbar__login" onClick={() => dispatch(logout())}>
-            <Link to="/">Exit</Link>
-          </div>
-        ) }
-      </Box>
-    </Grid>
+  const showAuthButtons = () => {
+    if (isAuth) {
+      return (
+        <div className="navbar__login" onClick={() => dispatch(logout())}>
+          <Link to="/">Exit</Link>
+        </div>
+      );
+    }
 
+    return (
+      <div className="auth-buttons">
+        <Link to="/login">
+          <Button size="small" startIcon={<VpnKeyIcon />} style={{ color: '#ffffff' }}>Log In</Button>
+        </Link>
+        <Link to="/registration">
+          <Button size="small" startIcon={<PersonAddIcon />} style={{ color: '#ffffff' }}>Sign Up</Button>
+        </Link>
+      </div>
+    );
+  };
+
+  const buttons = showAuthButtons();
+
+  return (
+    <div className="auth-buttons">
+      {buttons}
+    </div>
   );
 };
 
-export default LogReg;
+export default AuthButtons;

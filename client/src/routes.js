@@ -3,9 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import CountryPage from './pages/CountryPage';
-import LoginPage from './pages/LoginPage';
+import AuthPage from './pages/AuthPage';
 import MainPage from './pages/MainPage';
-import Registration from './pages/RegistrationPage';
 
 export default function useRoutes() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -34,12 +33,12 @@ export default function useRoutes() {
         <Route path="/country/:name">
           <CountryPage />
         </Route>
-        <Route path="/login" exact>
-          <LoginPage />
+        <Route path="/:auth" exact>
+          <AuthPage />
         </Route>
-        <Route path="/registration" exact>
+        {/* <Route path="/registration" exact>
           <Registration />
-        </Route>
+        </Route> */}
         <Redirect to="/" />
       </Switch>
     </>
