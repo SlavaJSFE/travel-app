@@ -1,6 +1,6 @@
 import React from 'react';
 import LanguageIcon from '@material-ui/icons/Language';
-import './scss/LanguageSelect.scss';
+import '../scss/LanguageSelect.scss';
 
 export default function LanguageSelect() {
   return (
