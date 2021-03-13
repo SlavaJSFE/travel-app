@@ -15,7 +15,7 @@ export default function CountryPageContent() {
   return (
     <div>
       <h2>{country.capital}</h2>
-      <CapitalDateTime />
+      <CapitalDateTime country={country} />
       <MapComponent country={country} />
     </div>
   );
