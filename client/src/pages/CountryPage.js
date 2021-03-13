@@ -46,8 +46,6 @@ export default function CountryPage() {
     if (!loadingC && !loadingW && !loadingCountry) setLoading(false);
   }, [loadingC, loadingW, loadingCountry]);
 
-  console.log(weatherData, currencyData, countryData);
-
   return (
     <Container>
       {
