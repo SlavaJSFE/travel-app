@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import fetchWeather from './redux/weather/actions';
 import fetchCurrency from './redux/currency/actions';
 
-const App2 = () => {
+// eslint-disable-next-line react/prop-types
+const App2 = ({ city }) => {
   const weatherData = useSelector((state) => state.weather.data);
   // const currencyData = useSelector((state) => state.currency.data);
   const loadingW = useSelector((state) => state.weather.loading);
@@ -12,8 +13,12 @@ const App2 = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchWeather());
-    dispatch((fetchCurrency()));
+    Promise.all([
+      dispatch(fetchWeather(city)),
+      dispatch((fetchCurrency())),
+    ]);
+
+    console.log(loadingW, loadingC, weatherData);
   }, [dispatch]);
 
   return (
