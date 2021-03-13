@@ -1,48 +1,36 @@
 import React from 'react';
-import SearchIcon from '@material-ui/icons/Search';
-import {
-  Container, TextField, Button,
-} from '@material-ui/core';
+import { Link, useParams, useRouteMatch } from 'react-router-dom';
+import { Container, Button } from '@material-ui/core';
 import AuthButtons from './AuthButtons';
+import LanguageSelect from './LanguageSelect';
+import './scss/Header.scss';
+import Logo from '../assets/images/rta-logo.png';
+import Search from './Search';
 
 export default function Header() {
+  const { isExact } = useRouteMatch();
+
   return (
     <div className="header">
       <Container>
         <div className="top-bar">
-          <div className="ribbon">
-            <div className="logo">
-              RTA
+          <Link to="/">
+            <div className="ribbon">
+              <div className="logo">
+                <img src={Logo} alt="" />
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="header-links">
-            <div>
-              <AuthButtons />
-            </div>
-            <div>
-              Language
-            </div>
+            <AuthButtons />
+            <LanguageSelect />
           </div>
         </div>
-        <h1 className="motto">Expend Your World</h1>
-        <form className="search">
-          <TextField
-            id="outlined-search"
-            label="Search..."
-            type="search"
-            variant="outlined"
-            size="small"
-            className="search-input"
-          />
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            startIcon={<SearchIcon />}
-          >
-            Search
-          </Button>
-        </form>
+        <h1 className="motto">
+          EXPEND YOUR
+          <span> WORLD</span>
+        </h1>
+        {isExact ? <Search /> : <div className="instead-search" />}
       </Container>
     </div>
   );

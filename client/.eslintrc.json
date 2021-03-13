@@ -30,6 +30,7 @@
         "react/destructuring-assignment": "warn",
         "react/prop-types": "off",
         "max-len": "warn",
-        "indent": "warn"
+        "indent": "warn",
+        "jsx-a11y/no-autofocus": "warn"
     }
 }
