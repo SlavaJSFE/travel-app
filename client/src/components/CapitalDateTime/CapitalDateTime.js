@@ -11,6 +11,20 @@ export default function CapitalDateTime({ country }) {
   };
 
   const calcTime = () => {
+    const getLocal = () => {
+      const selectLang = document.querySelector('.selectLang').value;
+      switch (selectLang) {
+        case 'en|en':
+          return 'en-EN';
+        case 'en|pl':
+          return 'pl-PL';
+        case 'en|ru':
+          return 'ru-RU';
+        default:
+          return 'en-EN';
+      }
+    };
+
     const date = new Date();
     const options = {
       year: 'numeric',
@@ -22,7 +36,7 @@ export default function CapitalDateTime({ country }) {
       second: 'numeric',
     };
     const hour = country.timeDifference;
-    const preResultDate = new Date(+date + hour * 60 * 6e4).toLocaleString('en-EN', options).split(', ');
+    const preResultDate = new Date(+date + hour * 60 * 6e4).toLocaleString(getLocal(), options).split(', ');
 
     const separatorMonthDay = (el) => {
       if (typeof Number(el) === 'number') {
