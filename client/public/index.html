@@ -16,19 +16,19 @@
 <body>
 
   <div class="gTranslate">
-    <a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl"
+    <a href="#" onclick="doGTranslate('en|en');switchSelect('.en');return false;" title="English" class="gflag nturl"
       style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32"
-        alt="English" /></a><a href="#" onclick="doGTranslate('en|pl');return false;" title="Polish" class="gflag nturl"
-      style="background-position:-200px -200px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32"
-        alt="Polish" /></a><a href="#" onclick="doGTranslate('en|ru');return false;" title="Russian" class="gflag nturl"
+        alt="English" /></a><a href="#" onclick="doGTranslate('en|pl');switchSelect('.pl');return false;" title="Polish"
+      class="gflag nturl" style="background-position:-200px -200px;"><img src="//gtranslate.net/flags/blank.png"
+        height="32" width="32" alt="Polish" /></a><a href="#"
+      onclick="doGTranslate('en|ru');switchSelect('.ru');return false;" title="Russian" class="gflag nturl"
       style="background-position:-500px -200px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32"
         alt="Russian" /></a>
 
     <br /><select onchange="doGTranslate(this);" class="selectLang">
-      <option value="">Select Language</option>
-      <option value="en|en">English</option>
-      <option value="en|pl">Polish</option>
-      <option value="en|ru">Russian</option>
+      <option value="en|en" class="en">English</option>
+      <option value="en|pl" class="pl">Polish</option>s
+      <option value="en|ru" class="ru">Russian</option>
     </select>
     <div id="google_translate_element2"></div>
 
@@ -38,6 +38,7 @@
 
   <script type="text/javascript">
     function googleTranslateElementInit2() { new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element2'); }
+    function switchSelect(optionClass) { const option = document.querySelector(optionClass).selected = true; }
   </script>
   <script type="text/javascript"
     src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
