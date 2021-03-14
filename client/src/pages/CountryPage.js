@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
+import { Global, css } from '@emotion/core';
+import ThumbnailGallery from '../components/Gallery/ThumbnailGallery';
+
 import CountryPhoto from '../components/CountryPhoto';
 import countries from '../constants/countries';
 import Description from '../components/Description';
@@ -31,6 +34,31 @@ export default function CountryPage() {
   const loadingW = useSelector((state) => state.weather.loading);
   const loadingCountry = useSelector((state) => state.country.loading);
   const dispatch = useDispatch();
+
+  const GlobalCSS = css`
+  * {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  html,
+  body,
+  .app {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+  }
+`;
 
   useEffect(() => {
     Promise.all(
@@ -62,6 +90,10 @@ export default function CountryPage() {
 
               <CountryPhoto image={country.image} />
               <Description />
+              <>
+                <Global styles={GlobalCSS} />
+                <ThumbnailGallery />
+              </>
               <MapComponent country={country} />
             </div>
           </div>

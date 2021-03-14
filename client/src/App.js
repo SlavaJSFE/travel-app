@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import Header from './components/Header';
 import { auth } from './redux/actions/user';
 import Footer from './components/Footer';
