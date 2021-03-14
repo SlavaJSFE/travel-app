@@ -81,8 +81,10 @@ export default function CapitalDateTime({ country }) {
   }, [currentTime]);
 
   return (
-    <div className="capitalDateTime">
-      {calcTime()}
+    <div className="clock-widget">
+      <div className="capitalDateTime">
+        {calcTime()}
+      </div>
     </div>
   );
 }
