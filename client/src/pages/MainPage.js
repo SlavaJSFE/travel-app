@@ -1,10 +1,17 @@
 import { Container, Box } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import countries from '../constants/countries';
+// import countries from '../constants/countries';
 import './scss/MainPage.scss';
 
 export default function MainPage() {
+  const countries = useSelector((state) => state.search.data);
+
+  // useEffect(() => {
+  //   console.log(countries);
+  // }, [countries]);
+
   function createCards() {
     return countries.map((country) => {
       const path = `country/${country.name.toLowerCase()}`;

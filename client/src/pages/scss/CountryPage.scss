@@ -1,5 +1,11 @@
 $main-color: #f50057;
 
+.beat-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 355px);
+}
 .country-page {
   display: grid;
   grid-template-columns: 230px 1fr;

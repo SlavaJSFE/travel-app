@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
-import countries from '../constants/countries';
+// import countries from '../constants/countries';
 import './scss/Search.scss';
+import { fetchCountriesList, fetchCountriesListSuccess } from '../redux/search/actions';
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState('');
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.search.data);
+  dispatch(fetchCountriesList('en'));
 
   function handleSubmit(event) {
     event.preventDefault();
   }
 
   useEffect(() => {
-    console.log(countries);
+    const searchResult = countries.filter((country) => {
+      let check = false;
+      if (country.name.toLowerCase().includes(searchValue.toLowerCase())
+      || country.capital.toLowerCase().includes(searchValue.toLowerCase())) {
+        check = true;
+      }
+      return check;
+    });
+    dispatch(fetchCountriesListSuccess(searchResult))
   }, [searchValue]);
 
   return (

@@ -49,7 +49,7 @@ export default function CountryPage() {
   return (
     <Container>
       {
-        loading ? <BeatLoader size={25} color="fuchsia" /> : (
+        loading ? <div className="beat-loader"><BeatLoader size={25} color="fuchsia" /></div> : (
           <div className="country-page">
             <div className="side-bar">
               <div className="clock-widget" />
@@ -66,7 +66,7 @@ export default function CountryPage() {
             </div>
           </div>
         )
-}
+      }
     </Container>
 
   );
