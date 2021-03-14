@@ -52,21 +52,21 @@ export default function CountryPage() {
         loading ? <BeatLoader size={25} color="fuchsia" /> : (
           <div className="country-page">
             <div className="side-bar">
-              <div className="clock-widget" />
+              <CapitalDateTime country={country} />
               <WeatherComponent weather={weatherData} />
               <CurrencyWidget currency={currencyData} code={country.code} />
             </div>
             <div className="main-content">
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
-              <CapitalDateTime country={country} />
+
               <CountryPhoto image={country.image} />
               <Description />
               <MapComponent country={country} />
             </div>
           </div>
         )
-}
+      }
     </Container>
 
   );
