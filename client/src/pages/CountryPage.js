@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './scss/CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
@@ -60,8 +61,14 @@ export default function CountryPage() {
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
 
-              <CountryPhoto image={country.image} />
-              <Description />
+              <CountryPhoto image={countryData.photo} />
+              <Description info={countryData.info} />
+              <CountryPhoto image={countryData.gallery[0]} />
+              <CountryPhoto image={countryData.gallery[1]} />
+              <CountryPhoto image={countryData.gallery[2]} />
+              <CountryPhoto image={countryData.gallery[3]} />
+              <CountryPhoto image={countryData.gallery[4]} />
+              <CountryPhoto image={countryData.gallery[5]} />
               <MapComponent country={country} />
             </div>
           </div>
