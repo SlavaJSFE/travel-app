@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { css } from '@emotion/core';
 import ActiveThumbnailWindow from './ActiveThumbnailWindow';
 import ThumbnailGrid from './ThumbnailGrid';
+import './gallery.scss';
 
 const ThumbnailGallery = () => {
   const [thumbnails, setThumbnails] = useState([]);
@@ -35,25 +35,8 @@ const ThumbnailGallery = () => {
     </>
   ) : null);
 
-  const ThumbnailGalleryCSS = css`
-  background: #ddd;
-  height: 500px;
-  width: 1024px;
-  margin: 40px auto;
-  display: flex;
-
-  .left,
-  .right {
-    flex: 1;
-  }
-
-  .right {
-    padding: 40px;
-  }
-`;
-
   return (
-    <div css={ThumbnailGalleryCSS}>
+    <div className="country-gallery">
       <div className="left">{renderThumbnails()}</div>
       <div className="right">{renderTextContent()}</div>
     </div>

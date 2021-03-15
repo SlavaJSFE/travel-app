@@ -1,16 +1,8 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import Thumbnail from './Thumbnail';
 
 const ThumbnailGrid = ({ thumbnails, onClick }) => (
-  <div
-    css={css`
-      height: 35%;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-    `}
-  >
+  <div className="thumbnail-grid">
     {thumbnails.map((thumbnail, i) => (
       <Thumbnail
         key={thumbnail.imgUrl}
