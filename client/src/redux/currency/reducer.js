@@ -11,7 +11,7 @@ const currencyReducer = (state = initialState, action) => {
     case FETCH_CURRENCY_REQUEST:
       return {
         ...state,
-        loading: false,
+        loading: true,
       };
     case FETCH_CURRENCY_SUCCESS:
       return {

@@ -11,7 +11,7 @@ const countryReducer = (state = initialState, action) => {
     case FETCH_COUNTRY_REQUEST:
       return {
         ...state,
-        loading: false,
+        loading: true,
       };
     case FETCH_COUNTRY_SUCCESS:
       return {

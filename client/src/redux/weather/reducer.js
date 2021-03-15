@@ -11,7 +11,7 @@ const weatherReducer = (state = initialState, action) => {
     case FETCH_WEATHER_REQUEST:
       return {
         ...state,
-        loading: false,
+        loading: true,
       };
     case FETCH_WEATHER_SUCCESS:
       return {

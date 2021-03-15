@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import './scss/CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
@@ -29,11 +29,6 @@ export default function CountryPage() {
   const country = countries.find((element) => element.name.toLowerCase() === name);
   const capital = `The capital: ${country.capital}`;
 
-  useEffect(() => {
-    setPage(pathname);
-    console.log('current page is', page, 'pathname is', pathname);
-  }, [setPage, pathname]);
-
   const [currentCountry, setCurrentCountry] = useState({});
 
   const weatherData = useSelector((state) => state.weather.data);
@@ -47,7 +42,7 @@ export default function CountryPage() {
 
   useEffect(() => {
     dispatch(fetchCountry(country.name));
-    if (!loadingCountry) setCurrentCountry(countryData);
+    if (!countryLoading) setCurrentCountry(countryData);
 
     return () => {
       dispatch(removeData());
@@ -59,7 +54,7 @@ export default function CountryPage() {
       dispatch(fetchWeather(countryData.capital));
       dispatch(fetchCurrency(country.curr));
     }
-  }, [loadingCountry, countryData.country]);
+  }, [countryLoading, countryData.country]);
 
   useEffect(() => {
     if (!currencyLoading && !weatherLoading && !countryLoading) setLoading(false);
@@ -71,23 +66,27 @@ export default function CountryPage() {
         loading ? <BeatLoader size={25} color="fuchsia" /> : (
           <div className="country-page">
             <div className="side-bar">
-              <div className="clock-widget" />
+              <CapitalDateTime country={country} />
               <WeatherComponent weather={weatherData} />
               <CurrencyWidget currency={currencyData} code={country.code} />
             </div>
             <div className="main-content">
-              <div className="country-name">{countryData.info}</div>
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
-              <CapitalDateTime country={country} />
-              <CountryPhoto image={country.image} />
-              <Description />
-              <VideoComponent />
+
+              <CountryPhoto image={countryData.photo} />
+              <Description info={countryData.info} />
+              <CountryPhoto image={countryData.gallery[0]} />
+              <CountryPhoto image={countryData.gallery[1]} />
+              <CountryPhoto image={countryData.gallery[2]} />
+              <CountryPhoto image={countryData.gallery[3]} />
+              <CountryPhoto image={countryData.gallery[4]} />
+              <CountryPhoto image={countryData.gallery[5]} />
               <MapComponent country={country} />
             </div>
           </div>
         )
-}
+      }
     </Container>
 
   );

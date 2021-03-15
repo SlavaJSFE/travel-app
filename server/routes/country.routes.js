@@ -18,7 +18,8 @@ router.post('/country',
             country: resCountry.country,
             photo: resCountry.photo,
             capital: resCountry.capital,
-            info: resCountry.info
+            info: resCountry.info,
+            gallery: resCountry.gallery
         // }
       });
     } catch (e) {
