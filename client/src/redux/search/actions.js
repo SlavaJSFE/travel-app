@@ -16,21 +16,22 @@ const fetchCountriesListFail = (error) => ({
   payload: error,
 });
 
-// const fetchCountriesList = (language = 'en') => (dispatch) => {
-//   dispatch(fetchCountriesListRequest);
-
-//   try {
-//     const response = axios.get('http://localhost:3030/api/search', { language });
-//     console.log(language);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-const fetchCountriesList = (language = 'en') => (dispatch) => {
+const fetchCountriesList = (language = 'en') => async (dispatch) => {
   dispatch(fetchCountriesListRequest);
-  const data = countries;
-  dispatch(fetchCountriesListSuccess(data));
+
+  try {
+    const response = await axios.get(`http://localhost:3030/api/search/${language}`);
+
+    dispatch(fetchCountriesListSuccess(response.data.data));
+  } catch (error) {
+    dispatch(fetchCountriesListFail(error));
+  }
 };
+
+// const fetchCountriesList = (language = 'en') => (dispatch) => {
+  // dispatch(fetchCountriesListRequest);
+  // const data = countries;
+  // dispatch(fetchCountriesListSuccess(data));
+// };
 
 export { fetchCountriesList, fetchCountriesListSuccess };
