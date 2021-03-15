@@ -7,7 +7,7 @@ import './scss/Video.scss';
 export default function VideoComponent() {
   return (
     <div className="video__wrapper">
-      <ReactPlayer url="https://slavajsfe.github.io/screenshots/[v-s.mobi]Орел и решка (11-10-2015) Варшава, Польша.mp4" playing controls />
+      <ReactPlayer url="https://slavajsfe.github.io/screenshots/germany-facts.mp4" controls />
       {/* <div className="video__controller" /> */}
     </div>
 

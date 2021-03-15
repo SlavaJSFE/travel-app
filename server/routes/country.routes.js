@@ -7,9 +7,9 @@ router.post('/country',
   async (req, res) => {
     try {
       const {country} = req.body;
-      console.log(country);
+      // console.log(country);
       const resCountry = await Country.findOne({country: country});
-      console.log(resCountry);
+      // console.log(resCountry);
       if (!resCountry) {
         return res.status(404).json({message: "Country not found"});
       }
