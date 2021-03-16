@@ -4,16 +4,14 @@ import ReactPlayer from 'react-player';
 
 import './scss/Video.scss';
 
-export default function VideoComponent() {
+export default function VideoComponent({country}) {
   const [control, setControl] = useState(true);
 
-  const handleControl = () => {
-    setControl(!control);
-  };
+  const url = `https://slavajsfe.github.io/screenshots/${country}.mp4`;
 
   return (
     <ReactPlayer
-      url="https://slavajsfe.github.io/screenshots/germany-facts.mp4"
+      url={url}
       config={{ file: { attributes: { controlsList: 'nodownload' } } }}
       onContextMenu={(e) => e.preventDefault()}
       controls={control}

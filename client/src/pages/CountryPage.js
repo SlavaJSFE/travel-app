@@ -80,7 +80,7 @@ export default function CountryPage() {
               <CountryPhoto image={countryData.gallery[4]} />
               <CountryPhoto image={countryData.gallery[5]} />
               <MapComponent country={country} />
-              <VideoComponent />
+              <VideoComponent country={country.name} />
             </div>
           </div>
         )
