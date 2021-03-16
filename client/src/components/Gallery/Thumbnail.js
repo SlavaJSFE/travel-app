@@ -6,6 +6,6 @@ const Thumbnail = ({ imgUrl, index, onClick }) => (
   <div className="gallery-preview">
     <img src={imgUrl} data-index={index} onClick={onClick} alt="s" />
   </div>
-)
+);
 
 export default Thumbnail;

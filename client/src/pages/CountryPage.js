@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
+import images from '../components/images';
+import Slider from '../components/Slider/Slider';
 
 import ThumbnailGallery from '../components/Gallery/ThumbnailGallery';
 
@@ -49,6 +51,7 @@ export default function CountryPage() {
     return () => {
       dispatch(removeData());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   useEffect(() => {
@@ -56,6 +59,7 @@ export default function CountryPage() {
       dispatch(fetchWeather(countryData.capital));
       dispatch(fetchCurrency(country.curr));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryLoading, countryData.country]);
 
   useEffect(() => {
@@ -79,6 +83,7 @@ export default function CountryPage() {
               <Description />
               <CountryPhoto image={countryData.photo} />
               <ThumbnailGallery />
+              <Slider slides={images} />
               <Description info={countryData.info} />
               <CountryPhoto image={countryData.gallery[0]} />
               <CountryPhoto image={countryData.gallery[1]} />
