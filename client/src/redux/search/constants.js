@@ -1,3 +1,0 @@
-const SET_COUNTRIES_LIST = 'SET_COUNTRIES_LIST';
-
-export default SET_COUNTRIES_LIST;
