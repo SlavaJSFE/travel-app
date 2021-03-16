@@ -15,6 +15,7 @@ const Arrow = ({ direction, handleClick }) => {
       className="arrow"
       onClick={handleClick}
       style={`${directionStyle};`}
+      aria-hidden="true"
     >
       <img
         style={`transform: translateX(${directionImgStyle}px);`}

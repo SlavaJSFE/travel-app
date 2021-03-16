@@ -10,9 +10,9 @@ const SliderContent = ({
   return (
     <div
       className="sliderContent"
-    // style={`transform: ${transform};
-    // transition: ${transitionStyle};
-    // width: ${widthStyle};`}
+      style={`transform: ${transform};
+              transition: ${transitionStyle};
+              width: ${widthStyle};`}
     >
       {children}
     </div>

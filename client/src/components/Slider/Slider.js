@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { css } from '@emotion/core';
 import SliderContent from './SliderContent';
 import Slide from './Slide';
 import Arrow from './Arrow';
