@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 
 import './scss/Video.scss';
 
-export default function VideoComponent({country}) {
+export default function VideoComponent({ country }) {
   const [control, setControl] = useState(true);
 
   const url = `https://slavajsfe.github.io/screenshots/${country}.mp4`;
