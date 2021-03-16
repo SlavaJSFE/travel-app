@@ -16,6 +16,10 @@ const fetchCountryfail = (error) => ({
   payload: error,
 });
 
+const removeData = () => ({
+  type: 'REMOVE_DATA',
+})
+
 const fetchCountry = (country = 'Italy') => (dispatch) => {
   dispatch(fetchCountryRequest);
 
@@ -36,4 +40,5 @@ const fetchCountry = (country = 'Italy') => (dispatch) => {
     );
 };
 
-export default fetchCountry;
+export { removeData, fetchCountry };
+// export default fetchCountry;
