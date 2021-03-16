@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, useParams, useRouteMatch } from 'react-router-dom';
-import { Container, Button } from '@material-ui/core';
+import { Link, useRouteMatch } from 'react-router-dom';
+import { Container } from '@material-ui/core';
 import AuthButtons from './AuthButtons';
 import LanguageSelect from './LanguageSelect';
 import './scss/Header.scss';

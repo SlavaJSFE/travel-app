@@ -5,6 +5,7 @@ import currencyReducer from './currency/reducer';
 import userReducer from './Sreducers/userReducer';
 import countryReducer from './countryData/reducer';
 import searchReducer from './search/reducer';
+import languageReducer from './language/reducer';
 
 const rootReducer = combineReducers({
   weather: weatherReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   country: countryReducer,
   search: searchReducer,
+  language: languageReducer,
 });
 
 export default rootReducer;

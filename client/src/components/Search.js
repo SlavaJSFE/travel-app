@@ -2,31 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
-// import countries from '../constants/countries';
+import countriesEn from '../constants/countries-en';
+import countriesRu from '../constants/countries-ru';
+import countriesPl from '../constants/countries-pl';
 import './scss/Search.scss';
-import { fetchCountriesList, fetchCountriesListSuccess } from '../redux/search/actions';
+import setCountriesList from '../redux/search/actions';
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
+  // const currentLanguage = useSelector((state) => state.language.language);
+
+  // dispatch(setCountriesList(countriesPl));
   const countries = useSelector((state) => state.search.data);
-  dispatch(fetchCountriesList('en'));
 
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-  useEffect(() => {
-    const searchResult = countries.filter((country) => {
-      let check = false;
-      if (country.name.toLowerCase().includes(searchValue.toLowerCase())
-      || country.capital.toLowerCase().includes(searchValue.toLowerCase())) {
-        check = true;
-      }
-      return check;
-    });
-    dispatch(fetchCountriesListSuccess(searchResult))
-  }, [searchValue]);
+  // useEffect(() => {
+  //   const searchResult = countries.filter((country) => {
+  //     let check = false;
+  //     if (country.name.toLowerCase().includes(searchValue.toLowerCase())
+  //     || country.capital.toLowerCase().includes(searchValue.toLowerCase())) {
+  //       check = true;
+  //     }
+  //     return check;
+  //   });
+  //   dispatch(setCountriesList(searchResult));
+  // }, [countries, dispatch, searchValue]);
 
   return (
     <form className="search" onSubmit={handleSubmit}>
