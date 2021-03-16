@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 import axios from 'axios';
 import { setUser } from '../Sreducers/userReducer';
@@ -36,5 +37,27 @@ export const auth = () => async (dispatch) => {
     localStorage.setItem('token', response.data.token);
   } catch (e) {
     // localStorage.removeItem('token');
+  }
+};
+
+export const uploadAvatar = (file) => async (dispatch) => {
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    const response = await axios.post('http://localhost:3030/api/auth/avatar', formData,
+      { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+    dispatch(setUser(response.data));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const deleteAvatar = () => async (dispatch) => {
+  try {
+    const response = await axios.delete('http://localhost:3030/api/auth/delete',
+      { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+    dispatch(setUser(response.data));
+  } catch (e) {
+    console.log(e);
   }
 };

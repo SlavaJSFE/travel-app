@@ -19,7 +19,8 @@ router.post('/country',
             photo: resCountry.photo,
             capital: resCountry.capital,
             info: resCountry.info,
-            gallery: resCountry.gallery
+            gallery: resCountry.gallery,
+            galDesc: resCountry.galDesc
         // }
       });
     } catch (e) {

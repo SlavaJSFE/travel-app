@@ -63,12 +63,12 @@ export default function CountryPage() {
 
               <CountryPhoto image={countryData.photo} />
               <Description info={countryData.info} />
-              <CountryPhoto image={countryData.gallery[0]} />
-              <CountryPhoto image={countryData.gallery[1]} />
-              <CountryPhoto image={countryData.gallery[2]} />
-              <CountryPhoto image={countryData.gallery[3]} />
-              <CountryPhoto image={countryData.gallery[4]} />
-              <CountryPhoto image={countryData.gallery[5]} />
+              {countryData.gallery.map((item, idx) => (
+                <div key={`${countryData.galDesc[idx]}14`}>
+                  <CountryPhoto image={item} key={countryData.galDesc[idx]} />
+                  <Description info={countryData.galDesc[idx]} key={`${countryData.galDesc[idx]}13`} />
+                </div>
+              ))}
               <MapComponent country={country} />
             </div>
           </div>

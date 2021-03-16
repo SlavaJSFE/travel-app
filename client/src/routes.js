@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import CountryPage from './pages/CountryPage';
 import AuthPage from './pages/AuthPage';
 import MainPage from './pages/MainPage';
+import Profile from './components/profile/Profile';
 
 export default function useRoutes() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -15,6 +16,9 @@ export default function useRoutes() {
         <Switch>
           <Route path="/" exact>
             <MainPage />
+          </Route>
+          <Route path="/profile" exact>
+            <Profile />
           </Route>
           <Route path="/country/:name">
             <CountryPage />
