@@ -11,7 +11,7 @@ const countryReducer = (state = initialState, action) => {
     case FETCH_COUNTRY_REQUEST:
       return {
         ...state,
-        loading: false,
+        loading: true,
       };
     case FETCH_COUNTRY_SUCCESS:
       return {
@@ -25,6 +25,8 @@ const countryReducer = (state = initialState, action) => {
         data: {},
         error: action.payload,
       };
+    case 'REMOVE_DATA':
+      return initialState;
     default: return state;
   }
 };
