@@ -11,12 +11,14 @@ import Fullscreen from '@material-ui/icons/Fullscreen';
 import FullscreenExit from '@material-ui/icons/FullscreenExit';
 
 import createLayer from './utils';
-import { ICON_WIDTH, ICON_HEIGHT, ZOOM_LEVEL, TILER_OBJ } from './constants';
+import {
+  ICON_WIDTH, ICON_HEIGHT, ZOOM_LEVEL, TILER_OBJ, ICON_LEFT, ICON_UP,
+} from './constants';
 
 import 'leaflet/dist/leaflet.css';
 import './MapComponent.scss';
 
-import loc from '../../assets/images/place.svg';
+import marker from '../../assets/images/marker.png';
 
 const btnStyles = {
   position: 'absolute',
@@ -44,8 +46,9 @@ export default function MapComponent({ country }) {
 
   const polygon = createLayer(name);
   const markerIcon = new L.Icon({
-    iconUrl: loc,
+    iconUrl: marker,
     iconSize: [ICON_WIDTH, ICON_HEIGHT],
+    iconAnchor: [ICON_LEFT, ICON_UP],
   });
 
   const handleClick = (e) => {
