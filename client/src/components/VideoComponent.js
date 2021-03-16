@@ -5,24 +5,18 @@ import ReactPlayer from 'react-player';
 import './scss/Video.scss';
 
 export default function VideoComponent() {
-  return (
-    <div className="video__wrapper">
-      <ReactPlayer url="https://slavajsfe.github.io/screenshots/germany-facts.mp4" controls />
-      {/* <div className="video__controller" /> */}
-    </div>
+  const [control, setControl] = useState(true);
 
+  const handleControl = () => {
+    setControl(!control);
+  };
+
+  return (
+    <ReactPlayer
+      url="https://slavajsfe.github.io/screenshots/germany-facts.mp4"
+      config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+      onContextMenu={(e) => e.preventDefault()}
+      controls={control}
+    />
   );
 }
-
-// import React from 'react';
-// import { Player } from 'video-react';
-
-// export default function VideoComponent() {
-//   console.log('nastya');
-//   return (
-//     <Player
-//       playsInline
-//       src="https://youtu.be/CxwJrzEdw1U"
-//     />
-//   );
-// }

@@ -1,16 +1,13 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
-import '../styles/owfont-regular.css';
-import './scss/Weather.scss';
+import './owfont-regular.css';
+import './Weather.scss';
 
 export default function WeatherComponent({ weather }) {
   const { main, name } = weather;
   const [sky] = weather.weather;
   const { description, id } = sky;
-  //   const c = ' &#8451;';
-  // const c = '&deg;';
-  // console.log(main.temp);
+
   return (
     <div className="weather-widget">
       <div className="weather__right">
