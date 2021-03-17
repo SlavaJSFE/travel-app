@@ -1,28 +1,17 @@
-/* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player';
 
 import './scss/Video.scss';
 
-export default function VideoComponent() {
-  return (
-    <div className="video__wrapper">
-      <ReactPlayer url="https://slavajsfe.github.io/screenshots/germany-facts.mp4" controls />
-      {/* <div className="video__controller" /> */}
-    </div>
+export default function VideoComponent({ country }) {
+  const url = `https://slavajsfe.github.io/screenshots/${country}.mp4`;
 
+  return (
+    <ReactPlayer
+      url={url}
+      config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+      onContextMenu={(e) => e.preventDefault()}
+      controls
+    />
   );
 }
-
-// import React from 'react';
-// import { Player } from 'video-react';
-
-// export default function VideoComponent() {
-//   console.log('nastya');
-//   return (
-//     <Player
-//       playsInline
-//       src="https://youtu.be/CxwJrzEdw1U"
-//     />
-//   );
-// }
