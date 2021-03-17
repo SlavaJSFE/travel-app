@@ -1,16 +1,16 @@
+@import '../../styles/colors.scss';
+
+.clock-widget {
+  @include widget;
+}
 .capitalDateTime{
-  background: linear-gradient(to right, #f50057, #0099F7);
-  border-top: 1px solid #CCC;
-  box-shadow: 0px 0px 5px 0px #ccc;
   cursor: pointer;
   vertical-align: middle;
-  height: inherit;
 }
 .capitalDateTime-common{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.8rem;
   line-height: 1.7;
     &__day{
       color: white;
