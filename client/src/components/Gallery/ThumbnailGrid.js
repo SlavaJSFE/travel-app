@@ -8,7 +8,7 @@ const ThumbnailGrid = ({ thumbnails, thumbnailPhotos, onClick }) => (
       thumbnailPhotos.map((thumbnailPhoto, i) => (
         <Thumbnail
           key={thumbnailPhoto}
-          imgUrl={thumbnailPhoto}
+          imgUrl={thumbnailPhoto.src}
           index={i}
           onClick={onClick}
         />

@@ -4,10 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
-import images from '../components/images';
-import Slider from '../components/Slider/Slider';
+import images from '../../components/images';
+import Slider from '../../components/Slider/Slider';
 
-import ThumbnailGallery from '../components/Gallery/ThumbnailGallery';
+import ThumbnailGallery from '../../components/Gallery/ThumbnailGallery';
 
 import CountryPhoto from '../../components/CountryPhoto/CountryPhoto';
 import countries from '../../constants/countries';

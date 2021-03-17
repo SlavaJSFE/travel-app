@@ -8,6 +8,7 @@ import './gallery.scss';
 const ThumbnailGallery = () => {
   const [thumbnails, setThumbnails] = useState([]);
   const [thumbnailPhotos, setThumbnailsPhoto] = useState([]);
+  const [thumbnailDescription, setThumbnailsDescription] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const countryData = useSelector((state) => state.country.data);
 
@@ -19,6 +20,8 @@ const ThumbnailGallery = () => {
     //   .then((res) => setThumbnails(res.data.thumbnails));
     setThumbnails(countryData);
     setThumbnailsPhoto(countryData.gallery);
+    setThumbnailsDescription(countryData.en);
+    console.log(countryData.en);
   }, [countryData]);
 
   const handleClick = (e) => {
@@ -26,7 +29,7 @@ const ThumbnailGallery = () => {
     setActiveIndex(activeIndex2);
   };
 
-  console.log('test', thumbnails);
+  console.log('test', thumbnailDescription.description);
 
   const renderThumbnails = () => (thumbnailPhotos.length ? (
     <>
@@ -39,13 +42,12 @@ const ThumbnailGallery = () => {
     </>
   ) : null);
 
-  const renderTextContent = () => (thumbnails.length ? null : (
+  const renderTextContent = () => (thumbnailDescription.description !== 'undefined' ? (
     <>
-      {/* <h1>{thumbnails[activeIndex].title}</h1> */}
-      <h1>{thumbnails.capital}</h1>
-      <p>{thumbnails.info}</p>
+      <h1>{thumbnailDescription.description[activeIndex].title}</h1>
+      <p>{thumbnailDescription.description[activeIndex].about}</p>
     </>
-  ));
+  ) : null);
 
   return (
     <div className="country-gallery">
