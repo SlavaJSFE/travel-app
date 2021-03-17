@@ -77,9 +77,9 @@ export default function CountryPage() {
               <div className="country-capital">{capital}</div>
               {/* <CountryPhoto image={country.image} /> */}
               <Description />
-              <CountryPhoto image={countryData.photo} />
+              {/* <CountryPhoto image={countryData.photo} /> */}
               <ThumbnailGallery />
-              <Slider slides={images} />
+              {/* <Slider slides={images} /> */}
               <Description info={countryData.info} />
               <CountryPhoto image={countryData.gallery[0]} />
               <CountryPhoto image={countryData.gallery[1]} />

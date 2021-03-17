@@ -4,5 +4,9 @@
     "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
     "part2": "Switch language between english and russian using buttons above."
   },
-  "test": "Test text"
+  "test": "Test text",
+  "gallery": {
+    "title": "Colosseum",
+    "description": "A huge amphitheater, that was built in 72 A.D. and became the main symbol of the Roman Empire. Numerous wars, earthquakes and other factors destroyed part of the Colosseum. But fortunately, modern architects and builders have managed to preserve the structure of the building.In 2007 Colosseum was named one of the New Seven Wonders of the World."
+  }
 }
