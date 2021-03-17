@@ -9,7 +9,6 @@ const getWidth = () => window.innerWidth;
 
 const Slider = (props) => {
   const { slides } = props;
-
   const firstSlide = slides[0];
   const secondSlide = slides[1];
   const lastSlide = slides[slides.length - 1];
@@ -43,19 +42,23 @@ const Slider = (props) => {
   });
 
   const smoothTransition = () => {
+    // eslint-disable-next-line no-underscore-dangle
     let slides2 = [];
 
     if (activeSlide === slides.length - 1) {
       slides2 = [slides[slides.length - 2], lastSlide, firstSlide];
-    } else if (activeSlide === 0) slides2 = [lastSlide, firstSlide, secondSlide];
-    // eslint-disable-next-line no-unused-vars
-    else slides2 = slides.slice(activeSlide - 1, activeSlide + 2);
+    } else if (activeSlide === 0) {
+      slides2 = [lastSlide, firstSlide, secondSlide];
+    } else {
+      slides2 = slides.slice(activeSlide - 1, activeSlide + 2);
+    }
 
     setState({
       ...state,
-      _slides,
+      slides2,
       transition: 0,
       translate: getWidth(),
+
     });
   };
 
@@ -103,13 +106,11 @@ const Slider = (props) => {
         clearInterval(interval);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.autoPlay]);
 
   useEffect(() => {
     if (transition === 0) setState({ ...state, transition: 0.45 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [transition]);
+  }, [state, transition]);
 
   return (
     <div className="slider" ref={sliderRef}>
@@ -119,8 +120,7 @@ const Slider = (props) => {
         width={getWidth() * _slides.length}
       >
         {_slides.map((slide, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Slide width={getWidth()} key={slide + i} content={slide} />
+          <Slide width={getWidth()} content={slide} />
         ))}
       </SliderContent>
 

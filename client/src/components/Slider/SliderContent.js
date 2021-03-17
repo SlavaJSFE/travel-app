@@ -4,19 +4,15 @@ import './Slider.scss';
 const SliderContent = ({
   translate, transition, width, children,
 }) => {
-  // const transform = `translateX(-${translate}px)`;
-  // const transitionStyle = `transform ease-out ${transition}s`;
   const style = {
-    width: { width },
+    transform: `translateX(-${translate}px)`,
+    transition: `transform ease-out ${transition}s`,
+    width: `${width}px`,
   };
-  const widthStyle = `${width}px`;
   return (
     <div
       className="sliderContent"
       style={style}
-    // style={`transform: ${transform};
-    //         transition: ${transitionStyle};
-    //         width: ${widthStyle};`}
     >
       {children}
     </div>

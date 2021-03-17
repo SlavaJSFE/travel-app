@@ -4,29 +4,20 @@ import rightArrow from '../img/right-arrow.svg';
 import './Slider.scss';
 
 const Arrow = ({ direction, handleClick }) => {
-  // const directionStyle = direction === 'right' ? 'right: 25px' : 'left: 25px';
   const directionImgStyle = direction === 'left' ? '-2' : '2';
   const directionImg = (direction === 'right' ? rightArrow : leftArrow);
-  const directionArrow = (direction === 'right' ? "right: '25px'" : 'left-arrow');
+  const directionArrow = (direction === 'right' ? 'right-arrow' : 'left-arrow');
   const clazz = directionArrow.concat(' arrow');
   const style = {
     transform: `translate(${directionImgStyle}px`,
   };
-  const style2 = {
-    directionArrow,
-  };
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className={clazz}
-      style={style2}
       onClick={handleClick}
       aria-hidden="true"
     >
       <img
-        // style={`transform: translateX(${directionImgStyle}px);`}
         style={style}
         src={directionImg}
         alt="img"
