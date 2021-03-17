@@ -26,6 +26,8 @@ const ThumbnailGallery = () => {
     setActiveIndex(activeIndex2);
   };
 
+  console.log('test', thumbnails);
+
   const renderThumbnails = () => (thumbnailPhotos.length ? (
     <>
       <ActiveThumbnailWindow activeThumbnail={thumbnailPhotos[activeIndex]} />

@@ -4,14 +4,16 @@ import Thumbnail from './Thumbnail';
 // eslint-disable-next-line no-unused-vars
 const ThumbnailGrid = ({ thumbnails, thumbnailPhotos, onClick }) => (
   <div className="thumbnail-grid">
-    {thumbnailPhotos.map((thumbnailPhoto, i) => (
-      <Thumbnail
-        key={thumbnailPhoto}
-        imgUrl={thumbnailPhoto}
-        index={i}
-        onClick={onClick}
-      />
-    ))}
+    {
+      thumbnailPhotos.map((thumbnailPhoto, i) => (
+        <Thumbnail
+          key={thumbnailPhoto}
+          imgUrl={thumbnailPhoto}
+          index={i}
+          onClick={onClick}
+        />
+      ))
+    }
   </div>
 );
 

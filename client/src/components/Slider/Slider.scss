@@ -45,6 +45,12 @@
   &:hover {
     transform: scale(1.1);
   }
+  .left-arrow{
+    left: 25px;
+  }
+  .right-arrow{
+    right: 25px;
+  }
   img {
     &:focus {
       outline: 0;

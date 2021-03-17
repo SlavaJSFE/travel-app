@@ -2,11 +2,14 @@ import React, { memo } from 'react';
 import './Slider.scss';
 
 const Dot = ({ active }) => {
-  const background = active ? 'black' : 'white';
+  // const background = active ? 'black' : 'white';
+  const style = {
+    background: active ? 'black' : 'white',
+  };
   return (
     <span
       className="dotActive"
-      style={`background: ${background}`}
+      style={style}
     />
   );
 };
