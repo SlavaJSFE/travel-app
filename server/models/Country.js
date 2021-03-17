@@ -6,7 +6,9 @@ const Country = new Schema({
     capital: {type: String, required: true},
     info: {type: String, required: true},
     gallery: {type: Array},
-    galDesc: {type: Array},
+    en: {type: Object},
+    ru: {type: Object},
+    pl: {type: Object},
 });
 
 module.exports = model('Country', Country);

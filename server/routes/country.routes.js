@@ -20,7 +20,9 @@ router.post('/country',
             capital: resCountry.capital,
             info: resCountry.info,
             gallery: resCountry.gallery,
-            galDesc: resCountry.galDesc
+            en: resCountry.en,
+            ru: resCountry.ru,
+            pl: resCountry.pl
         // }
       });
     } catch (e) {
