@@ -1,0 +1,48 @@
+$main-color: #f50057;
+
+.beat-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 355px);
+}
+.country-page {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 20px;
+  padding: 30px 0;
+}
+.side-bar {
+  position: sticky;
+  gap: 10px;
+  top: 3vh;
+  border-right: 2px solid rgb(173, 173, 173);
+  height: 94vh;
+}
+.main-content {
+  display: grid;
+}
+.country-name {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: $main-color;
+  text-decoration: underline #303f9f;
+  text-align: center;
+}
+.country-capital {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.block-photo {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 60%;
+  }
+}
+.description-component {
+  padding: 20px;
+}

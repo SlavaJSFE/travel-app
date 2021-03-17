@@ -1,0 +1,36 @@
+@import '../../styles/colors.scss';
+
+.footer {
+  background-color: $footer-color;
+  padding: 15px 0;
+}
+.footer-info {
+  padding-top: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.authors {
+  display: flex;
+  color: #ffffff;
+
+  p {
+    line-height: 0;
+  }
+}
+.author {
+  display: flex;
+  margin-left: 20px;
+
+  img{
+    height: 32px;
+  }
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 8px;
+    padding-top: 4px;
+  }
+}
+.rss-logo {
+  width: 90px;
+}
