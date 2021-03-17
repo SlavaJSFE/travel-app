@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import './Currency.scss';
 
 import CurrencyRow from './CurrencyRow';
-import './scss/Currency.scss';
 
 export default function CurrencyWidget({ currency, code }) {
   const { rates, base } = currency;

@@ -1,4 +1,5 @@
 import { FETCH_COUNTRY_REQUEST, FETCH_COUNTRY_SUCCESS, FETCH_COUNTRY_FAILURE } from './constants';
+import { REMOVE_DATA } from '../removeData';
 
 const initialState = {
   loading: true,
@@ -25,8 +26,8 @@ const countryReducer = (state = initialState, action) => {
         data: {},
         error: action.payload,
       };
-    case 'REMOVE_DATA':
-      return initialState;
+      case REMOVE_DATA:
+        return initialState;
     default: return state;
   }
 };

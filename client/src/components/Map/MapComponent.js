@@ -3,25 +3,22 @@
 import React, { useRef, useEffect, useState } from 'react';
 import L from 'leaflet';
 import {
-  TileLayer, Marker, Popup, GeoJSON, MapContainer,
+  TileLayer, Marker, GeoJSON, MapContainer,
 } from 'react-leaflet';
-import ToggleButton from '@material-ui/lab/ToggleButton';
 
+import ToggleButton from '@material-ui/lab/ToggleButton';
 import Fullscreen from '@material-ui/icons/Fullscreen';
 import FullscreenExit from '@material-ui/icons/FullscreenExit';
 
-import loc from '../assets/images/place.svg';
-import geoJson from '../constants/geoJson.json';
+import createLayer from './utils';
+import {
+  ICON_WIDTH, ICON_HEIGHT, ZOOM_LEVEL, TILER_OBJ, ICON_LEFT, ICON_UP,
+} from './constants';
 
 import 'leaflet/dist/leaflet.css';
-import './scss/MapComponent.scss';
+import './MapComponent.scss';
 
-const createLayer = (currentCountry) => {
-  const polygon = geoJson.features.find((el) => el.properties.name === currentCountry);
-  const newJson = { type: 'FeatureCollection', features: [polygon] };
-
-  return newJson;
-};
+import marker from '../../assets/images/marker.png';
 
 const btnStyles = {
   position: 'absolute',
@@ -35,48 +32,46 @@ const btnStyles = {
 };
 
 export default function MapComponent({ country }) {
-  const [FS, setFS] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
   const { name, center } = country;
+  const { url, attribution } = TILER_OBJ;
 
   const mapRef = useRef('');
   const map = mapRef.current;
 
   useEffect(() => {
-    const fs = map.fullscreenElement;
-    setFS(fs);
-  }, [map, setFS]);
+    const isFullscreen = map.fullscreenElement;
+    setFullscreen(isFullscreen);
+  }, [map, setFullscreen]);
 
   const polygon = createLayer(name);
   const markerIcon = new L.Icon({
-    iconUrl: loc,
-    iconSize: [45, 45],
+    iconUrl: marker,
+    iconSize: [ICON_WIDTH, ICON_HEIGHT],
+    iconAnchor: [ICON_LEFT, ICON_UP],
   });
 
   const handleClick = (e) => {
     e.preventDefault();
 
-    if (FS) {
-      setFS(!FS);
+    if (fullscreen) {
+      setFullscreen(!fullscreen);
       document.exitFullscreen();
     } else {
-      setFS(!FS);
+      setFullscreen(!fullscreen);
       map.requestFullscreen().catch((err) => console.log(err));
     }
   };
 
   return (
     <div ref={mapRef} className="map__container">
-      <MapContainer center={center} zoom={4} scrollWheelZoom>
+      <MapContainer center={center} zoom={ZOOM_LEVEL} scrollWheelZoom>
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=NfC39NaWWZJzy5nYWV2N"
+          attribution={attribution}
+          url={url}
         />
         <GeoJSON data={polygon} />
-        <Marker position={center} icon={markerIcon}>
-          <Popup>
-            popup
-          </Popup>
-        </Marker>
+        <Marker position={center} icon={markerIcon} />
       </MapContainer>
       <ToggleButton
         style={btnStyles}
@@ -84,7 +79,7 @@ export default function MapComponent({ country }) {
         value="bold"
       >
         {
-        FS ? <FullscreenExit /> : <Fullscreen />
+        fullscreen ? <FullscreenExit /> : <Fullscreen />
       }
       </ToggleButton>
     </div>

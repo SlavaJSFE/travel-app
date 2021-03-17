@@ -22,9 +22,6 @@ import { removeData, fetchCountry } from '../../redux/countryData/actions';
 
 export default function CountryPage() {
   const { name } = useParams();
-  const location = useLocation();
-  const { pathname } = location;
-  const [page, setPage] = useState('');
   const [loading, setLoading] = useState(true);
   const country = countries.find((element) => element.name.toLowerCase() === name);
   const capital = `The capital: ${country.capital}`;
@@ -83,6 +80,7 @@ export default function CountryPage() {
               <CountryPhoto image={countryData.gallery[4]} />
               <CountryPhoto image={countryData.gallery[5]} />
               <MapComponent country={country} />
+              <VideoComponent country={country.name} />
             </div>
           </div>
         )
