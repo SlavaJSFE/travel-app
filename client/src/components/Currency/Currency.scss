@@ -1,0 +1,14 @@
+@import '../../styles/colors.scss';
+
+.currency-widget {
+  @include widget;
+  display: grid;
+  padding-left: 15px;
+
+}
+.currency {
+  &__row {
+      display: flex;
+      align-items: center;
+  }
+}

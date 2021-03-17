@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import './CapitalDateTime.scss';
 
@@ -12,7 +11,7 @@ export default function CapitalDateTime({ country }) {
 
   const calcTime = () => {
     const getLocal = () => {
-      const selectLang = document.querySelector('.selectLang').value;
+      const selectLang = document.querySelector('.language-select').value;
       switch (selectLang) {
         case 'en|en':
           return 'en-En';

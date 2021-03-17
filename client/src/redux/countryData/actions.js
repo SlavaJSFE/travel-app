@@ -18,7 +18,7 @@ const fetchCountryfail = (error) => ({
 
 const removeData = () => ({
   type: 'REMOVE_DATA',
-})
+});
 
 const fetchCountry = (country = 'Italy') => (dispatch) => {
   dispatch(fetchCountryRequest);
