@@ -22,7 +22,6 @@ const fetchWeather = (city = 'Rome') => (dispatch) => {
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=be&appid=43a0da3daca90b8278a58b70b53ab20d&units=metric`)
     .then(
       (response) => {
-        console.log(response);
         const { data } = response;
         dispatch(fetchWeatherSuccess(data));
       },

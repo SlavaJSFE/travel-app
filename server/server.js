@@ -7,6 +7,7 @@ const app = express();
 
 const authRouter = require("./routes/auth.routes");
 const countryRouter = require("./routes/country.routes");
+const searchRouter = require('./routes/search.routes');
 
 const PORT = config.get('port') || 5000;
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.static('static'));
 app.use("/api/auth", authRouter);
 app.use("/oth", countryRouter);
+app.use('/api/search', searchRouter);
 
 async function start() {
   try {

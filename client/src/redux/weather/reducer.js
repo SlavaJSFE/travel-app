@@ -1,4 +1,5 @@
 import { FETCH_WEATHER_REQUEST, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_FAILURE } from './constants';
+import { REMOVE_DATA } from '../removeData';
 
 const initialState = {
   loading: true,
@@ -11,7 +12,7 @@ const weatherReducer = (state = initialState, action) => {
     case FETCH_WEATHER_REQUEST:
       return {
         ...state,
-        loading: false,
+        loading: true,
       };
     case FETCH_WEATHER_SUCCESS:
       return {
@@ -25,6 +26,8 @@ const weatherReducer = (state = initialState, action) => {
         data: [],
         error: action.payload,
       };
+    case REMOVE_DATA:
+      return initialState;
     default: return state;
   }
 };

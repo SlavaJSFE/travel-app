@@ -1,10 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import CountryPage from './pages/CountryPage';
-import AuthPage from './pages/AuthPage';
-import MainPage from './pages/MainPage';
+import CountryPage from './pages/CountryPage/CountryPage';
+import MainPage from './pages/MainPage/MainPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import Profile from './components/profile/Profile';
 
 export default function useRoutes() {
@@ -37,12 +37,12 @@ export default function useRoutes() {
         <Route path="/country/:name">
           <CountryPage />
         </Route>
-        <Route path="/:auth" exact>
-          <AuthPage />
+        <Route path="/login" exact>
+          <LoginPage />
         </Route>
-        {/* <Route path="/registration" exact>
-          <Registration />
-        </Route> */}
+        <Route path="/registration" exact>
+          <RegistrationPage />
+        </Route>
         <Redirect to="/" />
       </Switch>
     </>
