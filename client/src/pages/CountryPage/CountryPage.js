@@ -24,6 +24,7 @@ export default function CountryPage() {
   const [loading, setLoading] = useState(true);
   const country = countries.find((element) => element.name.toLowerCase() === name);
   const capital = `The capital: ${country.capital}`;
+  const lang = useSelector((state) => state.language.language);
 
   const [currentCountry, setCurrentCountry] = useState({});
 
@@ -71,13 +72,14 @@ export default function CountryPage() {
               <div className="country-capital">{capital}</div>
 
               <CountryPhoto image={countryData.photo} />
-              <Description info={countryData.info} />
-              <CountryPhoto image={countryData.gallery[0]} />
-              <CountryPhoto image={countryData.gallery[1]} />
-              <CountryPhoto image={countryData.gallery[2]} />
-              <CountryPhoto image={countryData.gallery[3]} />
-              <CountryPhoto image={countryData.gallery[4]} />
-              <CountryPhoto image={countryData.gallery[5]} />
+              <Description info={countryData[lang].info} />
+              {countryData.gallery.map((item, idx) => (
+                <div key={`${item.idx}14`}>
+                  <CountryPhoto image={item.src} key={item.idx} />
+                  <Description info={countryData[lang].description[idx].title} key={`${item.idx}13`} />
+                  <Description info={countryData[lang].description[idx].about} key={`${item.idx}13`} />
+                </div>
+              ))}
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>
