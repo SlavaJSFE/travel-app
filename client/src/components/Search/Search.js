@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
-import './scss/Search.scss';
-import { setSearchResult } from '../redux/countries/actions';
+import './Search.scss';
+import { setSearchResult } from '../../redux/countries/actions';
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState('');

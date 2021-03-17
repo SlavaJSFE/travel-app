@@ -19,14 +19,6 @@ $main-color: #f50057;
   border-right: 2px solid rgb(173, 173, 173);
   height: 94vh;
 }
-.clock-widget,
-.weather-widget,
-.currency-widget {
-  width: 90%;
-  height: 190px;
-  margin-bottom: 20px;
-  box-shadow: 0px 5px 20px 5px rgba(34, 60, 80, 0.2);
-}
 .main-content {
   display: grid;
 }

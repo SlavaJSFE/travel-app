@@ -1,5 +1,4 @@
 /* eslint-disable react/no-danger */
-/* eslint-disable max-len */
 import React from 'react';
 
 export default function Description({ info }) {

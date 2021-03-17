@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import { logout } from '../../redux/Sreducers/userReducer';
 
 const AuthButtons = () => {
@@ -17,7 +18,11 @@ const AuthButtons = () => {
     if (isAuth) {
       return (
         <div className="navbar__login" onClick={() => dispatch(logout())}>
-          <Link to="/">Exit</Link>
+          <Link to="/">
+            <Button size="small" startIcon={<DirectionsRunIcon />} style={{ color: '#ffffff' }}>
+              Log Out
+            </Button>
+          </Link>
         </div>
       );
     }

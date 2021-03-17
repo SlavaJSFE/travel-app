@@ -2,3 +2,13 @@ $main-color: #f50057;
 $footer-color: #1a237e;
 $font-color: #566885;
 $basic-color: #ffffff;
+
+@mixin widget {
+  width: 90%;
+  height: 190px;
+  margin-bottom: 20px;
+  box-shadow: 0px 5px 20px 5px rgba(34, 60, 80, 0.2);
+  background-color: #0000ff33;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

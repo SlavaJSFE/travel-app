@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
@@ -6,12 +5,12 @@ import { useParams, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
-import CountryPhoto from '../../components/CountryPhoto';
+import CountryPhoto from '../../components/CountryPhoto/CountryPhoto';
 import countries from '../../constants/countries';
-import Description from '../../components/Description';
-import MapComponent from '../../components/MapComponent';
-import WeatherComponent from '../../components/WeatherComponent';
-import CurrencyWidget from '../../components/CurrencyWidget';
+import Description from '../../components/Description/Description';
+import MapComponent from '../../components/Map';
+import WeatherComponent from '../../components/Weather';
+import CurrencyWidget from '../../components/Currency';
 import CapitalDateTime from '../../components/CapitalDateTime';
 import VideoComponent from '../../components/VideoComponent';
 
@@ -63,7 +62,7 @@ export default function CountryPage() {
         loading ? <div className="beat-loader"><BeatLoader size={25} color="fuchsia" /></div> : (
           <div className="country-page">
             <div className="side-bar">
-              {/* <CapitalDateTime country={country} /> */}
+              <CapitalDateTime country={country} />
               <WeatherComponent weather={weatherData} />
               <CurrencyWidget currency={currencyData} code={country.code} />
             </div>

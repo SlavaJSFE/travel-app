@@ -1,4 +1,11 @@
-import italy from '../assets/images/italy/italy.jpg';
+import italy from '../assets/images/card-images/italy.jpeg';
+import germany from '../assets/images/card-images/germany.jpg';
+import france from '../assets/images/card-images/france.jpg';
+import poland from '../assets/images/card-images/poland.jpg';
+import latvia from '../assets/images/card-images/latvia.jpg';
+import czech from '../assets/images/card-images/czech.jpg';
+import norway from '../assets/images/card-images/norway.jpg';
+import switzerland from '../assets/images/card-images/switzerland.jpg';
 
 const countriesRu = [
   {
@@ -10,43 +17,43 @@ const countriesRu = [
   {
     name: 'Германия',
     capital: 'Берлин',
-    image: italy,
+    image: germany,
     path: 'country/germany',
   },
   {
     name: 'Франция',
     capital: 'Париж',
-    image: italy,
+    image: france,
     path: 'country/france',
   },
   {
     name: 'Польша',
     capital: 'Варшава',
-    image: italy,
+    image: poland,
     path: 'country/poland',
   },
   {
     name: 'Латвия',
     capital: 'Рига',
-    image: italy,
+    image: latvia,
     path: 'country/latvia',
   },
   {
     name: 'Чехия',
     capital: 'Прага',
-    image: italy,
+    image: czech,
     path: 'country/czech',
   },
   {
     name: 'Норвегия',
     capital: 'Осло',
-    image: italy,
+    image: norway,
     path: 'country/norway',
   },
   {
     name: 'Швейцария',
     capital: 'Берн',
-    image: italy,
+    image: switzerland,
     path: 'country/switzerland',
   },
 ];
