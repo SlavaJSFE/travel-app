@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import LanguageIcon from '@material-ui/icons/Language';
-import '../scss/LanguageSelect.scss';
+import './LanguageSelect.scss';
 import changeLanguage from '../../redux/language/actions';
 
 export default function LanguageSelect() {

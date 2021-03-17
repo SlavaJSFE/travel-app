@@ -1,24 +1,24 @@
 /* eslint-disable no-unused-vars */
-import './scss/CountryPage.scss';
+import './CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
-import CountryPhoto from '../components/CountryPhoto';
-import countries from '../constants/countries';
-import Description from '../components/Description';
-import MapComponent from '../components/MapComponent';
-import WeatherComponent from '../components/WeatherComponent';
-import CurrencyWidget from '../components/CurrencyWidget';
-import CapitalDateTime from '../components/CapitalDateTime';
-import VideoComponent from '../components/VideoComponent';
+import CountryPhoto from '../../components/CountryPhoto';
+import countries from '../../constants/countries';
+import Description from '../../components/Description';
+import MapComponent from '../../components/MapComponent';
+import WeatherComponent from '../../components/WeatherComponent';
+import CurrencyWidget from '../../components/CurrencyWidget';
+import CapitalDateTime from '../../components/CapitalDateTime';
+import VideoComponent from '../../components/VideoComponent';
 
-import fetchWeather from '../redux/weather/actions';
-import fetchCurrency from '../redux/currency/actions';
+import fetchWeather from '../../redux/weather/actions';
+import fetchCurrency from '../../redux/currency/actions';
 // import fetchCountry from '../redux/countryData/actions';
-import { removeData, fetchCountry } from '../redux/countryData/actions';
+import { removeData, fetchCountry } from '../../redux/countryData/actions';
 
 export default function CountryPage() {
   const { name } = useParams();

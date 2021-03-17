@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import './scss/AuthButtons.scss';
+import './AuthButtons.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import { logout } from '../redux/Sreducers/userReducer';
+import { logout } from '../../redux/Sreducers/userReducer';
 
 const AuthButtons = () => {
   const isAuth = useSelector((state) => state.user.isAuth);

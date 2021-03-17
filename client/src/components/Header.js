@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '@material-ui/core';
-import AuthButtons from './AuthButtons';
+import AuthButtons from './AuthButtons/AuthButtons';
 import LanguageSelect from './LanguageSelect';
 import './scss/Header.scss';
 import Logo from '../assets/images/rta-logo.png';
 import Search from './Search';
-import { setCountriesList } from '../redux/countries/actions';
+import { setCountriesList, setSearchResult } from '../redux/countries/actions';
 import countriesEn from '../constants/countries-en';
 import countriesPl from '../constants/countries-pl';
 import countriesRu from '../constants/countries-ru';
@@ -26,6 +26,10 @@ export default function Header() {
       dispatch(setCountriesList(countriesPl));
     }
   }, [currentLanguage, dispatch]);
+
+  const countries = useSelector((state) => state.countries.list);
+
+  dispatch(setSearchResult(countries));
 
   return (
     <div className="header">
