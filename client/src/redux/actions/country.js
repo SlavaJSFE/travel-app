@@ -7,7 +7,7 @@ import { setCountry } from '../Sreducers/countryReducer';
 
 export const fetchCountry = (country) => (dispatch) => {
   try {
-    const response = axios.get('http://localhost:3030/oth/country',
+    const response = axios.get('https://safe-beach-06882.herokuapp.com/oth/country',
       { country });
     console.log(response.data);
     // dispatch(setCountry(response.data.countries));

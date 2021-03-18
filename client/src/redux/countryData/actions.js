@@ -23,7 +23,7 @@ const removeData = () => ({
 const fetchCountry = (country = 'Italy') => (dispatch) => {
   dispatch(fetchCountryRequest);
 
-  axios.post('http://localhost:3030/oth/country', { country })
+  axios.post('https://safe-beach-06882.herokuapp.com/oth/country', { country })
     .then(
       (response) => {
         const { data } = response;
