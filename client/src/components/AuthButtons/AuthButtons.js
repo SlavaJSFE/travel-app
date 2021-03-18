@@ -24,7 +24,9 @@ const AuthButtons = () => {
     if (isAuth) {
       return (
         <>
-          <img src={avatar} alt="Avatar logo" width="30" height="30" />
+          <Link to="profile">
+            <img src={avatar} alt="Avatar logo" width="30" height="30" />
+          </Link>
           <div className="navbar__login" onClick={() => dispatch(logout())}>
             <Link to="/">
               <Button size="small" startIcon={<DirectionsRunIcon />} style={{ color: '#ffffff' }}>

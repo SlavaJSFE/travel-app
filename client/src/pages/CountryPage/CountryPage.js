@@ -51,11 +51,12 @@ export default function CountryPage() {
 
   useEffect(() => {
     if (countryData.country === country.name) {
-      dispatch(fetchWeather(countryData.capital));
+      const { capital } = countryData[lang];
+
+      dispatch(fetchWeather(capital, lang));
       dispatch(fetchCurrency(country.curr));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [countryLoading, countryData.country]);
+  }, [countryLoading, countryData.country, lang]);
 
   useEffect(() => {
     if (!currencyLoading && !weatherLoading && !countryLoading) setLoading(false);
@@ -69,7 +70,7 @@ export default function CountryPage() {
             <div className="side-bar">
               <CapitalDateTime country={country} />
               <div className="divider" />
-              <WeatherComponent weather={weatherData} />
+              <WeatherComponent lang={lang} weather={weatherData} />
               <div className="divider" />
               <CurrencyWidget currency={currencyData} code={country.code} />
             </div>
