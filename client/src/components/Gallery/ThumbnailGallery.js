@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line no-unused-vars
 import { useSelector } from 'react-redux';
 import ActiveThumbnailWindow from './ActiveThumbnailWindow';
 import ThumbnailGrid from './ThumbnailGrid';
 import './gallery.scss';
 
 const ThumbnailGallery = () => {
-  const { t } = useTranslation();
   const [thumbnails, setThumbnails] = useState([]);
   const [thumbnailPhotos, setThumbnailsPhoto] = useState([]);
   const [thumbnailDescription, setThumbnailsDescription] = useState([]);

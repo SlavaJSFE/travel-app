@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 import AuthButtons from '../AuthButtons/AuthButtons';
 import LanguageSelect from '../LanguageSelect';
 import './Header.scss';
@@ -16,6 +17,8 @@ export default function Header() {
   const { isExact } = useRouteMatch();
   const currentLanguage = useSelector((state) => state.language.language);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const translate = t;
 
   useEffect(() => {
     if (currentLanguage === 'en') {
@@ -48,8 +51,10 @@ export default function Header() {
           </div>
         </div>
         <h1 className="motto">
-          EXPEND YOUR
-          <span> WORLD</span>
+          {translate('EXPAND YOUR')}
+          <span>
+            {translate('WORLD')}
+          </span>
         </h1>
         {isExact ? <Search /> : <div className="instead-search" />}
       </Container>

@@ -1,11 +1,9 @@
 import './CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
-import images from '../../components/images';
-import Slider from '../../components/Slider/Slider';
 
 import ThumbnailGallery from '../../components/Gallery/ThumbnailGallery';
 
@@ -16,11 +14,10 @@ import MapComponent from '../../components/Map';
 import WeatherComponent from '../../components/Weather';
 import CurrencyWidget from '../../components/Currency';
 import CapitalDateTime from '../../components/CapitalDateTime';
-import VideoComponent from '../../components/VideoComponent';
+import VideoComponent from '../../components/Video/VideoComponent';
 
 import fetchWeather from '../../redux/weather/actions';
 import fetchCurrency from '../../redux/currency/actions';
-// import fetchCountry from '../redux/countryData/actions';
 import { removeData, fetchCountry } from '../../redux/countryData/actions';
 
 export default function CountryPage() {
@@ -76,19 +73,9 @@ export default function CountryPage() {
             <div className="main-content">
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
-              {/* <CountryPhoto image={country.image} /> */}
-              <Description />
-              {/* <CountryPhoto image={countryData.photo} /> */}
-              <ThumbnailGallery />
-              {/* <Slider slides={images} /> */}
+              <CountryPhoto image={countryData.photo} />
               <Description info={countryData[lang].info} />
-              {/* {countryData.gallery.map((item, idx) => (
-                <div key={`${item.idx}14`}>
-                  <CountryPhoto image={item.src} key={item.idx} />
-                  <Description info={countryData[lang].description[idx].title} key={`${item.idx}13`} />
-                  <Description info={countryData[lang].description[idx].about} key={`${item.idx}13`} />
-                </div>
-              ))} */}
+              <ThumbnailGallery />
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>
@@ -96,6 +83,5 @@ export default function CountryPage() {
         )
       }
     </Container>
-
   );
 }
