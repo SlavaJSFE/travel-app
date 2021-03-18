@@ -81,21 +81,14 @@ export default function CountryPage() {
               {/* <CountryPhoto image={countryData.photo} /> */}
               <ThumbnailGallery />
               {/* <Slider slides={images} /> */}
-              <Description info={countryData.info} />
-              {/* <Description info={countryData[lang].info} /> */}
-              {/* <CountryPhoto image={countryData.gallery[0]} />
-              <CountryPhoto image={countryData.gallery[1]} />
-              <CountryPhoto image={countryData.gallery[2]} />
-              <CountryPhoto image={countryData.gallery[3]} />
-              <CountryPhoto image={countryData.gallery[4]} />
-              <CountryPhoto image={countryData.gallery[5]} /> */}
-              {countryData.gallery.map((item, idx) => (
+              <Description info={countryData[lang].info} />
+              {/* {countryData.gallery.map((item, idx) => (
                 <div key={`${item.idx}14`}>
                   <CountryPhoto image={item.src} key={item.idx} />
                   <Description info={countryData[lang].description[idx].title} key={`${item.idx}13`} />
                   <Description info={countryData[lang].description[idx].about} key={`${item.idx}13`} />
                 </div>
-              ))}
+              ))} */}
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>
