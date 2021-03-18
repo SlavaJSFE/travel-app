@@ -21,6 +21,7 @@ $main-color: #f50057;
 }
 .main-content {
   display: grid;
+  padding: 0 40px;
 }
 .country-name {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -44,5 +45,5 @@ $main-color: #f50057;
   }
 }
 .description-component {
-  padding: 20px;
+  padding: 20px 0;
 }
