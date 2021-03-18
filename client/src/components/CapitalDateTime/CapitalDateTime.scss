@@ -4,7 +4,6 @@
   @include widget;
 }
 .capitalDateTime{
-  cursor: pointer;
   vertical-align: middle;
 }
 .capitalDateTime-common{
@@ -13,23 +12,24 @@
   align-items: center;
   line-height: 1.7;
     &__day{
-      color: white;
+      font-size: 20px;
+      color: $underline-color;
+      letter-spacing: 1.6px;
       margin: 0;
       margin-top: 1rem;
     }
     &__month{
       margin: 0;
-      color: #0099f7;
-      font-weight: 800;
-      font-size: 1.4rem;
+      color: $main-color;
+      font-size: 1.8rem;
     }
     &__year{
       margin: 0;
-      color: #0099f7;
+      color: $main-color;
     }
     &__time{
       margin: 0;
-      color: #ffffff;
+      color: $widget-color-main;
       font-size: 1.8rem;
       font-weight: 900;
       font-family: "Roboto", sans-serif;
