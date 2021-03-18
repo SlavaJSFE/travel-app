@@ -37,7 +37,7 @@ export default function CountryPage() {
   const country = countries.find((element) => element.name.toLowerCase() === name);
   // const capital = `${translate('The capital')}: ${countryData[lang].capital}`;
 
-  const [currentCountry, setCurrentCountry] = useState({});
+  const [setCurrentCountry] = useState({});
 
   useEffect(() => {
     dispatch(fetchCountry(country.name));
@@ -56,6 +56,7 @@ export default function CountryPage() {
       dispatch(fetchWeather(capital, lang));
       dispatch(fetchCurrency(country.curr));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryLoading, countryData.country, lang]);
 
   useEffect(() => {

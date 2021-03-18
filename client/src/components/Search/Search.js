@@ -28,6 +28,7 @@ export default function Search() {
       return check;
     });
     dispatch(setSearchResult(searchResult));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   return (
@@ -38,6 +39,7 @@ export default function Search() {
           placeholder={`${translate('Search')}...`}
           className="search-input"
           onChange={(e) => setSearchValue(e.target.value)}
+          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
         />
         <Button

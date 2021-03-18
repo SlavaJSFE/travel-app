@@ -6,17 +6,17 @@
 .weather {
    &__temperature {
        font-size: 4rem;
-       color: #586A6A; 
+       color: $widget-color-main; 
 
        span {
-           font-size: 12px;
+           font-size: 14px;
        }
    } 
 
    &__city {
        font-size: 2rem;
        text-align: center;
-       color: #586A6A;
+       color: $main-color;
    }
 
    &__icon {
@@ -42,5 +42,5 @@
 
 .owf {
     font-size: 60px;
-    color: #586A6A;
+    color: $widget-color-main;
 }

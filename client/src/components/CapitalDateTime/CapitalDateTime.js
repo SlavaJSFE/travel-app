@@ -1,15 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './CapitalDateTime.scss';
 
 export default function CapitalDateTime({ country }) {
-  const classDateTime = {
-    day: 'capitalDateTime-common__day',
-    month: 'capitalDateTime-common__month',
-    year: 'capitalDateTime-common__year',
-    time: 'capitalDateTime-common__time',
-  };
-
-  const calcTime = () => {
+  const calcTime = useCallback(() => {
     const getLocal = () => {
       const selectLang = document.querySelector('.language-select').value;
       switch (selectLang) {
@@ -48,7 +41,7 @@ export default function CapitalDateTime({ country }) {
         <p className="capitalDateTime-common__time">{time}</p>
       </div>
     );
-  };
+  }, [country.timeDifference]);
 
   const [currentTime, setCurrentTime] = useState(calcTime());
 
@@ -60,7 +53,7 @@ export default function CapitalDateTime({ country }) {
     return () => {
       clearInterval(indicator);
     };
-  }, [currentTime]);
+  }, [calcTime, currentTime]);
 
   return (
     <div className="clock-widget">
