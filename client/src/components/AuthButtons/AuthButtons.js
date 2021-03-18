@@ -7,23 +7,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+// import { logout } from '../redux/Sreducers/userReducer';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import avatarLogo from '../../assets/images/avatar.svg';
 import { logout } from '../../redux/Sreducers/userReducer';
 
 const AuthButtons = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
+  let avatar = useSelector((state) => state.user.currentUser.avatar);
+  avatar = avatar ? `data:image/jpeg;base64, ${avatar}` : avatarLogo;
   const dispatch = useDispatch();
 
   const showAuthButtons = () => {
     if (isAuth) {
       return (
-        <div className="navbar__login" onClick={() => dispatch(logout())}>
-          <Link to="/">
-            <Button size="small" startIcon={<DirectionsRunIcon />} style={{ color: '#ffffff' }}>
-              Log Out
-            </Button>
-          </Link>
-        </div>
+        <>
+          <img src={avatar} alt="Avatar logo" width="30" height="30" />
+          <div className="navbar__login" onClick={() => dispatch(logout())}>
+            <Link to="/">
+              <Button size="small" startIcon={<DirectionsRunIcon />} style={{ color: '#ffffff' }}>
+                Log Out
+              </Button>
+            </Link>
+          </div>
+        </>
       );
     }
 
