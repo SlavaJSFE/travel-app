@@ -3,9 +3,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const {check, validationResult} = require("express-validator");
+const fs = require('fs');
 const User = require("../models/User");
 const router = new Router();
 const authMiddleware = require('../middleware/auth.middleware');
+const Uuid = require('uuid');
 
 router.post('/registration',
   [
@@ -77,6 +79,37 @@ router.get('/auth', authMiddleware,
     } catch (e) {
         console.log(e);
         res.send({message: "Server error"});
+    }
+});
+
+router.post('/avatar', authMiddleware,
+  async (req, res) => {
+    try {
+        console.log(req.files);
+        const file = req.files.file;
+        const user = await User.findById(req.user.id);
+        // const avatarName = Uuid.v4() + ".jpg";
+        // file.mv(config.get('staticPath') + "/" + avatarName);
+        user.avatar = new Buffer(file.data).toString('base64');
+        await user.save();
+        return res.json(user);
+    } catch (e) {
+        console.log(e);
+        return res.status(400).json({message: 'Upload avatar error'});
+    }
+  });
+
+router.delete('/delete', authMiddleware,
+  async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        // fs.unlinkSync(config.get('staticPath') + "/" + user.avatar);
+        user.avatar = null;
+        await user.save();
+        return res.json(user);
+    } catch (e) {
+        console.log(e);
+        return res.status(400).json({message: 'Delete avatar error'});
     }
 });
 
