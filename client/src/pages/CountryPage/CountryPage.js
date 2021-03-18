@@ -56,7 +56,6 @@ export default function CountryPage() {
       dispatch(fetchWeather(capital, lang));
       dispatch(fetchCurrency(country.curr));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryLoading, countryData.country, lang]);
 
   useEffect(() => {
