@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Header from './components/Header/index';
 import { auth } from './redux/actions/user';
 import Footer from './components/Footer/Footer';
@@ -8,6 +9,12 @@ import useRoutes from './routes';
 import './App.scss';
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
+
   const routes = useRoutes();
   const dispatch = useDispatch();
 
@@ -20,6 +27,13 @@ function App() {
       <Router>
         <Header />
         {routes}
+        <button type="button" onClick={() => changeLanguage('en')}>EN</button>
+        <button type="button" onClick={() => changeLanguage('ru')}>RU</button>
+        <hr />
+        <div><h1>{t('title')}</h1></div>
+        <div>{t('description.part1')}</div>
+        <div>{t('description.part2')}</div>
+        <div>{t('test')}</div>
       </Router>
       <Footer color="primary" />
     </div>

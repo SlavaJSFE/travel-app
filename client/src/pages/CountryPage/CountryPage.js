@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
+import images from '../../components/images';
+import Slider from '../../components/Slider/Slider';
+
+import ThumbnailGallery from '../../components/Gallery/ThumbnailGallery';
 
 import CountryPhoto from '../../components/CountryPhoto/CountryPhoto';
 import countries from '../../constants/countries';
@@ -44,6 +48,7 @@ export default function CountryPage() {
     return () => {
       dispatch(removeData());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   useEffect(() => {
@@ -51,6 +56,7 @@ export default function CountryPage() {
       dispatch(fetchWeather(countryData.capital));
       dispatch(fetchCurrency(country.curr));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryLoading, countryData.country]);
 
   useEffect(() => {
@@ -70,16 +76,19 @@ export default function CountryPage() {
             <div className="main-content">
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
-
-              <CountryPhoto image={countryData.photo} />
+              {/* <CountryPhoto image={country.image} /> */}
+              <Description />
+              {/* <CountryPhoto image={countryData.photo} /> */}
+              <ThumbnailGallery />
+              {/* <Slider slides={images} /> */}
               <Description info={countryData[lang].info} />
-              {countryData.gallery.map((item, idx) => (
+              {/* {countryData.gallery.map((item, idx) => (
                 <div key={`${item.idx}14`}>
                   <CountryPhoto image={item.src} key={item.idx} />
                   <Description info={countryData[lang].description[idx].title} key={`${item.idx}13`} />
                   <Description info={countryData[lang].description[idx].about} key={`${item.idx}13`} />
                 </div>
-              ))}
+              ))} */}
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>
