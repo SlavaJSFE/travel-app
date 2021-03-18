@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import './LoginPage.scss';
 import { useDispatch } from 'react-redux';
 import { Button, TextField } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 import { login } from '../../redux/actions/user';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const translate = t;
 
   return (
     <form className="login-form">
-      <h2>LOG IN TO YOUR ACCOUNT</h2>
+      <h2>{translate('LOG IN TO YOUR ACCOUNT')}</h2>
       <TextField
         id="email-input"
-        label="Email"
+        label={translate('Email')}
         type="email"
         autoComplete="current-email"
         variant="outlined"
@@ -22,7 +25,7 @@ const LoginPage = () => {
       />
       <TextField
         id="password-input"
-        label="Password"
+        label={translate('Password')}
         type="password"
         autoComplete="current-password"
         variant="outlined"
@@ -39,7 +42,7 @@ const LoginPage = () => {
           color="secondary"
           size="large"
         >
-          Log In
+          {translate('Log In')}
         </Button>
       </div>
     </form>

@@ -1,9 +1,12 @@
 import './CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
+
+import { useTranslation } from 'react-i18next';
+import ThumbnailGallery from '../../components/Gallery/ThumbnailGallery';
 
 import CountryPhoto from '../../components/CountryPhoto/CountryPhoto';
 import countries from '../../constants/countries';
@@ -12,30 +15,29 @@ import MapComponent from '../../components/Map';
 import WeatherComponent from '../../components/Weather';
 import CurrencyWidget from '../../components/Currency';
 import CapitalDateTime from '../../components/CapitalDateTime';
-import VideoComponent from '../../components/VideoComponent';
-
+import VideoComponent from '../../components/Video/VideoComponent';
 import fetchWeather from '../../redux/weather/actions';
 import fetchCurrency from '../../redux/currency/actions';
-// import fetchCountry from '../redux/countryData/actions';
 import { removeData, fetchCountry } from '../../redux/countryData/actions';
 
 export default function CountryPage() {
-  const { name } = useParams();
-  const [loading, setLoading] = useState(true);
-  const country = countries.find((element) => element.name.toLowerCase() === name);
-  const capital = `The capital: ${country.capital}`;
-  const lang = useSelector((state) => state.language.language);
-
-  const [currentCountry, setCurrentCountry] = useState({});
-
   const weatherData = useSelector((state) => state.weather.data);
   const currencyData = useSelector((state) => state.currency.data);
   const countryData = useSelector((state) => state.country.data);
-
+  const lang = useSelector((state) => state.language.language);
   const currencyLoading = useSelector((state) => state.currency.loading);
   const weatherLoading = useSelector((state) => state.weather.loading);
   const countryLoading = useSelector((state) => state.country.loading);
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
+  const translate = t;
+  const { name } = useParams();
+  const [loading, setLoading] = useState(true);
+  const country = countries.find((element) => element.name.toLowerCase() === name);
+  // const capital = `${translate('The capital')}: ${countryData[lang].capital}`;
+
+  const [currentCountry, setCurrentCountry] = useState({});
 
   useEffect(() => {
     dispatch(fetchCountry(country.name));
@@ -44,14 +46,17 @@ export default function CountryPage() {
     return () => {
       dispatch(removeData());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   useEffect(() => {
     if (countryData.country === country.name) {
-      dispatch(fetchWeather(countryData.capital));
+      const { capital } = countryData[lang];
+
+      dispatch(fetchWeather(capital, lang));
       dispatch(fetchCurrency(country.curr));
     }
-  }, [countryLoading, countryData.country]);
+  }, [countryLoading, countryData.country, lang]);
 
   useEffect(() => {
     if (!currencyLoading && !weatherLoading && !countryLoading) setLoading(false);
@@ -64,22 +69,21 @@ export default function CountryPage() {
           <div className="country-page">
             <div className="side-bar">
               <CapitalDateTime country={country} />
-              <WeatherComponent weather={weatherData} />
+              <div className="divider" />
+              <WeatherComponent lang={lang} weather={weatherData} />
+              <div className="divider" />
               <CurrencyWidget currency={currencyData} code={country.code} />
             </div>
             <div className="main-content">
-              <div className="country-name">{country.name}</div>
-              <div className="country-capital">{capital}</div>
-
+              <div className="country-name">
+                {countryData[lang].country}
+              </div>
+              <div className="country-capital">
+                {`${translate('The capital')}: ${countryData[lang].capital}`}
+              </div>
               <CountryPhoto image={countryData.photo} />
               <Description info={countryData[lang].info} />
-              {countryData.gallery.map((item, idx) => (
-                <div key={`${item.idx}14`}>
-                  <CountryPhoto image={item.src} key={item.idx} />
-                  <Description info={countryData[lang].description[idx].title} key={`${item.idx}13`} />
-                  <Description info={countryData[lang].description[idx].about} key={`${item.idx}13`} />
-                </div>
-              ))}
+              <ThumbnailGallery />
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>
@@ -87,6 +91,5 @@ export default function CountryPage() {
         )
       }
     </Container>
-
   );
 }

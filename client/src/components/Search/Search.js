@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
 import './Search.scss';
+import { useTranslation } from 'react-i18next';
 import { setSearchResult } from '../../redux/countries/actions';
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const translate = t;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -32,7 +35,7 @@ export default function Search() {
       <div>
         <input
           type="search"
-          placeholder="Search..."
+          placeholder={`${translate('Search')}...`}
           className="search-input"
           onChange={(e) => setSearchValue(e.target.value)}
           autoFocus
@@ -44,7 +47,7 @@ export default function Search() {
           size="large"
           startIcon={<SearchIcon />}
         >
-          Search
+          {translate('Search')}
         </Button>
       </div>
     </form>

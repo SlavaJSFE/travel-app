@@ -8,6 +8,7 @@ import { Button } from '@material-ui/core';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import { useTranslation } from 'react-i18next';
 import avatarLogo from '../../assets/images/avatar.svg';
 import { logout } from '../../redux/Sreducers/userReducer';
 
@@ -16,6 +17,8 @@ const AuthButtons = () => {
   let avatar = useSelector((state) => state.user.currentUser.avatar);
   avatar = avatar ? `data:image/jpeg;base64, ${avatar}` : avatarLogo;
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const translate = t;
 
   const showAuthButtons = () => {
     if (isAuth) {
@@ -27,7 +30,7 @@ const AuthButtons = () => {
           <div className="navbar__login" onClick={() => dispatch(logout())}>
             <Link to="/">
               <Button size="small" startIcon={<DirectionsRunIcon />} style={{ color: '#ffffff' }}>
-                Log Out
+                {translate('Log Out')}
               </Button>
             </Link>
           </div>
@@ -38,10 +41,14 @@ const AuthButtons = () => {
     return (
       <div className="auth-buttons">
         <Link to="/login">
-          <Button size="small" startIcon={<VpnKeyIcon />} style={{ color: '#ffffff' }}>Log In</Button>
+          <Button size="small" startIcon={<VpnKeyIcon />} style={{ color: '#ffffff' }}>
+            {translate('Log In')}
+          </Button>
         </Link>
         <Link to="/registration">
-          <Button size="small" startIcon={<PersonAddIcon />} style={{ color: '#ffffff' }}>Sign Up</Button>
+          <Button size="small" startIcon={<PersonAddIcon />} style={{ color: '#ffffff' }}>
+            {translate('Sign Up')}
+          </Button>
         </Link>
       </div>
     );

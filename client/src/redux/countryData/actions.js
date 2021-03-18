@@ -33,7 +33,6 @@ const fetchCountry = (country = 'Italy') => (dispatch) => {
     )
     .catch(
       (error) => {
-        console.log(error);
         const { messege } = error;
         dispatch(fetchCountryfail(messege));
       },
@@ -41,4 +40,3 @@ const fetchCountry = (country = 'Italy') => (dispatch) => {
 };
 
 export { removeData, fetchCountry };
-// export default fetchCountry;
