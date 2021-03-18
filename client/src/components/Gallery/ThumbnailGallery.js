@@ -27,6 +27,7 @@ const ThumbnailGallery = () => {
     <>
       <ActiveThumbnailWindow activeThumbnail={thumbnailPhotos[activeIndex]} />
       <ThumbnailGrid
+        activePhoto={activeIndex}
         thumbnails={thumbnails}
         thumbnailPhotos={thumbnailPhotos}
         onClick={handleClick}
