@@ -1,4 +1,4 @@
-$main-color: #f50057;
+@import '../../styles/colors.scss';
 
 .beat-loader {
   display: flex;
@@ -16,12 +16,18 @@ $main-color: #f50057;
   position: sticky;
   gap: 10px;
   top: 3vh;
-  border-right: 2px solid rgb(173, 173, 173);
+  border-right: 2px solid $divider-color;
   height: 94vh;
+}
+.divider {
+  background-color: $divider-color;
+  margin-bottom: 10px;
+  height: 2px;
+  width: 90%;
 }
 .main-content {
   display: grid;
-  padding: 0 40px;
+  padding: 0 60px;
 }
 .country-name {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -35,14 +41,6 @@ $main-color: #f50057;
   text-align: center;
   font-size: 20px;
   margin-bottom: 20px;
-}
-.block-photo {
-  width: 100%;
-  text-align: center;
-
-  img {
-    width: 60%;
-  }
 }
 .description-component {
   padding: 20px 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+import './CountryPhoto.scss';
 
 export default function CountryPhoto({ image }) {
   return (
