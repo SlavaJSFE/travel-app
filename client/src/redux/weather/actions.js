@@ -16,10 +16,10 @@ const fetchWeatherfail = (error) => ({
   payload: error,
 });
 
-const fetchWeather = (city = 'Rome') => (dispatch) => {
+const fetchWeather = (city = 'Rome', lang = 'en') => (dispatch) => {
   dispatch(fetchWeatherRequest);
 
-  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=be&appid=43a0da3daca90b8278a58b70b53ab20d&units=metric`)
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&appid=43a0da3daca90b8278a58b70b53ab20d&units=metric`)
     .then(
       (response) => {
         const { data } = response;
