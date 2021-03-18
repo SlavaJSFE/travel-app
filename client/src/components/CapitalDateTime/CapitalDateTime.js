@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import './CapitalDateTime.scss';
 
 export default function CapitalDateTime({ country }) {
+  const lang = useSelector((state) => state.language.language);
+
   const calcTime = useCallback(() => {
     const getLocal = () => {
-      const selectLang = document.querySelector('.language-select').value;
-      switch (selectLang) {
-        case 'en|en':
+      switch (lang) {
+        case 'en':
           return 'en-En';
-        case 'en|pl':
+        case 'pl':
           return 'pl-PL';
-        case 'en|ru':
+        case 'ru':
           return 'ru-RU';
         default:
           return 'en-Ru';
@@ -41,7 +43,7 @@ export default function CapitalDateTime({ country }) {
         <p className="capitalDateTime-common__time">{time}</p>
       </div>
     );
-  }, [country.timeDifference]);
+  }, [country.timeDifference, lang]);
 
   const [currentTime, setCurrentTime] = useState(calcTime());
 
