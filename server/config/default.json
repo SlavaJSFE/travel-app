@@ -1,5 +1,6 @@
 {
   "port": 3030,
   "mongoDB": "mongodb+srv://SlavaJSFE:Travel-app-12345@cluster0.nkuya.mongodb.net/travelApp?retryWrites=true&w=majority",
-  "secretKey": "travel-app"
+  "secretKey": "travel-app",
+  "staticPath":"/media/h-9/mainData/dev/js/fs/rss/t/travel-app/server/static/"
 }

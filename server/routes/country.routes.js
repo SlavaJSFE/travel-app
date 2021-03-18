@@ -13,13 +13,17 @@ router.post('/country',
       if (!resCountry) {
         return res.status(404).json({message: "Country not found"});
       }
+      
       return res.json({
         // user: {
             country: resCountry.country,
             photo: resCountry.photo,
             capital: resCountry.capital,
             info: resCountry.info,
-            gallery: resCountry.gallery
+            gallery: resCountry.gallery,
+            en: resCountry.en,
+            ru: resCountry.ru,
+            pl: resCountry.pl
         // }
       });
     } catch (e) {

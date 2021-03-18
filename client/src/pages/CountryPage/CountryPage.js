@@ -1,9 +1,11 @@
 import './CountryPage.scss';
 import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
+
+import ThumbnailGallery from '../../components/Gallery/ThumbnailGallery';
 
 import CountryPhoto from '../../components/CountryPhoto/CountryPhoto';
 import countries from '../../constants/countries';
@@ -12,11 +14,10 @@ import MapComponent from '../../components/Map';
 import WeatherComponent from '../../components/Weather';
 import CurrencyWidget from '../../components/Currency';
 import CapitalDateTime from '../../components/CapitalDateTime';
-import VideoComponent from '../../components/VideoComponent';
+import VideoComponent from '../../components/Video/VideoComponent';
 
 import fetchWeather from '../../redux/weather/actions';
 import fetchCurrency from '../../redux/currency/actions';
-// import fetchCountry from '../redux/countryData/actions';
 import { removeData, fetchCountry } from '../../redux/countryData/actions';
 
 export default function CountryPage() {
@@ -24,6 +25,7 @@ export default function CountryPage() {
   const [loading, setLoading] = useState(true);
   const country = countries.find((element) => element.name.toLowerCase() === name);
   const capital = `The capital: ${country.capital}`;
+  const lang = useSelector((state) => state.language.language);
 
   const [currentCountry, setCurrentCountry] = useState({});
 
@@ -43,6 +45,7 @@ export default function CountryPage() {
     return () => {
       dispatch(removeData());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   useEffect(() => {
@@ -50,6 +53,7 @@ export default function CountryPage() {
       dispatch(fetchWeather(countryData.capital));
       dispatch(fetchCurrency(country.curr));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryLoading, countryData.country]);
 
   useEffect(() => {
@@ -69,15 +73,9 @@ export default function CountryPage() {
             <div className="main-content">
               <div className="country-name">{country.name}</div>
               <div className="country-capital">{capital}</div>
-
               <CountryPhoto image={countryData.photo} />
-              <Description info={countryData.info} />
-              <CountryPhoto image={countryData.gallery[0]} />
-              <CountryPhoto image={countryData.gallery[1]} />
-              <CountryPhoto image={countryData.gallery[2]} />
-              <CountryPhoto image={countryData.gallery[3]} />
-              <CountryPhoto image={countryData.gallery[4]} />
-              <CountryPhoto image={countryData.gallery[5]} />
+              <Description info={countryData[lang].info} />
+              <ThumbnailGallery />
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>
@@ -85,6 +83,5 @@ export default function CountryPage() {
         )
       }
     </Container>
-
   );
 }

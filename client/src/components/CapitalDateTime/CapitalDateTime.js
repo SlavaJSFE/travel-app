@@ -41,23 +41,6 @@ export default function CapitalDateTime({ country }) {
     const fullDate = preResultDate.toLocaleString(getLocal(), dateOptions);
     const time = new Date(+date + hour * 60 * 6e4).toLocaleString(getLocal(), timeOptions);
 
-    // const separatorMonthDay = (el) => {
-    //   if (typeof Number(el) === 'number') {
-    //     const elem = el.split(' ');
-    //     const el1 = elem[0];
-    //     const el2 = elem[1];
-    //     return [el2, ' ', el1];
-    //   }
-    //   return el;
-    // };
-
-    // const resultDate = preResultDate.map((el) => (
-    //   <p className={`${el === preResultDate[0] ? Object.values(classDateTime)[0] : ''}${el === preResultDate[1] ? Object.values(classDateTime)[1] : ''}${el === preResultDate[2] ? Object.values(classDateTime)[2] : ''}${el === preResultDate[3] ? Object.values(classDateTime)[3] : ''}`}>
-    //     {el === preResultDate[1] ? separatorMonthDay(el) : el}
-    //   </p>
-    // ));
-    // eslint-disable-next-line no-console
-
     return (
       <div className="capitalDateTime-common">
         <p className="capitalDateTime-common__day">{weekday}</p>
