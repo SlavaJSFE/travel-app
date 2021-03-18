@@ -10,9 +10,18 @@
   &__row {
     display: flex;
     align-items: center;
+    color: $widget-color-main;
 
     img {
       margin-right: 10px;
     }
+    span {
+      margin-right: 10px;
+    }
   }
+}
+.currency-title {
+  font-size: 20px;
+  // text-align: center;
+  color: $main-color;
 }

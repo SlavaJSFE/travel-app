@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useTranslation } from 'react-i18next';
 import './owfont-regular.css';
 import './Weather.scss';
 
@@ -7,6 +7,8 @@ export default function WeatherComponent({ weather }) {
   const { main, name, wind } = weather;
   const [sky] = weather.weather;
   const { description, id } = sky;
+  const { t } = useTranslation();
+  const translate = t;
 
   return (
     <div className="weather-widget">
@@ -22,8 +24,8 @@ export default function WeatherComponent({ weather }) {
         <div className="weather__icon-description">{description}</div>
         <div>{`feels like ${Math.round(main.feels_like)}`}</div>
         <div className="weather__wind-humidity">
-          <span>{`Hum.: ${main.humidity}%`}</span>
-          <span>{`Wind: ${Math.round(wind.speed)}m/s`}</span>
+          <span>{`${translate('Hum')}.: ${main.humidity}%`}</span>
+          <span>{`${translate('Wind')}: ${Math.round(wind.speed)}m/s`}</span>
         </div>
       </div>
     </div>
