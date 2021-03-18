@@ -1,10 +1,12 @@
 {
-  "title": "Internationalizing with i18next",
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-    "part2": "Switch language between english and russian using buttons above."
-  },
-  "test": "Test text",
-  "title1": "EXPEND YOUR",
-  "title2": " WORLD"
+  "EXPAND YOUR": "EXPAND YOUR",
+  "WORLD": " WORLD",
+  "Log In": "Log In",
+  "Sign Up": "Sign Up",
+  "Log Out": "Log Out",
+  "Search": "Search",
+  "LOG IN TO YOUR ACCOUNT": "LOG IN TO YOUR ACCOUNT",
+  "CREATE A NEW ACCOUNT": "CREATE A NEW ACCOUNT",
+  "Email": "Email",
+  "Password": "Password"
 }
