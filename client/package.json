@@ -83,5 +83,5 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
-  "proxy": "http://localhost:3030"
+  "proxy": "https://safe-beach-06882.herokuapp.com/"
 }
