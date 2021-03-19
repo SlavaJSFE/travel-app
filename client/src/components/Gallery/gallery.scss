@@ -12,7 +12,7 @@
   max-width: 18rem;
 }
 .active-window {
-  height: 65%;
+  height: 60%;
   width: 100%;
   background: #333;
   position: relative;
@@ -33,20 +33,23 @@
   width: 25%;
   position: relative;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.7s;
+  margin: 0.4rem;
   &:hover{
     transform: scale(1.04);
     transition: 0.4s;
     box-shadow: 0px 5px 20px 5px rgb(34 60 80 / 20%);
-  }
-  .activGallery-preview{
-    border: 2px solid red;
   }
   
   img {
     width: 100%;
     height: 100%;
   }
+}
+.activGallery-preview{
+  border: 4px solid #007eff78;
+    box-shadow: #007effb0 0px 3px 3px -2px, #007effb5 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px;
+    margin: 0;
 }
 
 @media (max-width: 767px) {
