@@ -15,13 +15,12 @@ const Slider = (props) => {
 
   const [state, setState] = useState({
     activeSlide: 0,
-    translate: getWidth(),
+    translate: 0,
     transition: 0.45,
-    _slides: [lastSlide, firstSlide, secondSlide],
   });
 
   const {
-    activeSlide, translate, _slides, transition,
+    activeSlide, translate, transition,
   } = state;
 
   const autoPlayRef = useRef();
@@ -29,15 +28,25 @@ const Slider = (props) => {
   const resizeRef = useRef();
   const sliderRef = useRef();
 
+  const isLastSlide = () => {
+    if (Math.abs(translate) >= Math.abs(((slides.length - 1) * getWidth()))) return true;
+    return false
+  }
+
+  const isFirstSlide = () => {
+    if (translate === 0) return true;
+    return false
+  }
+
   const nextSlide = () => setState({
     ...state,
-    translate: translate + getWidth(),
+    translate: isLastSlide() ? 0 : translate + getWidth(),
     activeSlide: activeSlide === slides.length - 1 ? 0 : activeSlide + 1,
   });
 
   const prevSlide = () => setState({
     ...state,
-    translate: 0,
+    translate: isFirstSlide() ? (slides.length - 1) * getWidth() : translate - getWidth(),
     activeSlide: activeSlide === 0 ? slides.length - 1 : activeSlide - 1,
   });
 
@@ -112,15 +121,17 @@ const Slider = (props) => {
     if (transition === 0) setState({ ...state, transition: 0.45 });
   }, [state, transition]);
 
+  console.log({ state, slides, getWidth: getWidth() })
+
   return (
     <div className="slider" ref={sliderRef}>
       <SliderContent
         translate={translate}
         transition={transition}
-        width={getWidth() * _slides.length}
+        width={getWidth() * slides.length}
       >
-        {_slides.map((slide, i) => (
-          <Slide width={getWidth()} content={slide} />
+        {slides.map((slide, i) => (
+          <Slide key={`${slide.toString() + i}`} width={getWidth()} content={slide} />
         ))}
       </SliderContent>
 
