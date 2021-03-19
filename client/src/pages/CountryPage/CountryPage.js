@@ -35,7 +35,6 @@ export default function CountryPage() {
   const { name } = useParams();
   const [loading, setLoading] = useState(true);
   const country = countries.find((element) => element.name.toLowerCase() === name);
-  // const capital = `${translate('The capital')}: ${countryData[lang].capital}`;
 
   const [setCurrentCountry] = useState({});
 
