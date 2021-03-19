@@ -1,8 +1,7 @@
 import React from 'react';
 import Thumbnail from './Thumbnail';
 
-// eslint-disable-next-line no-unused-vars
-const ThumbnailGrid = ({ thumbnails, thumbnailPhotos, onClick, activePhoto }) => (
+const ThumbnailGrid = ({ thumbnailPhotos, onClick, activePhoto }) => (
   <div className="thumbnail-grid">
     {
       thumbnailPhotos.map((thumbnailPhoto, i) => (
