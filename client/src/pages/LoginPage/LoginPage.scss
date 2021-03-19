@@ -11,3 +11,9 @@
 .form-button {
   justify-self: right;
 }
+
+@media (max-width: 519px) {
+  .login-form {
+    width: 300px;
+  }
+}

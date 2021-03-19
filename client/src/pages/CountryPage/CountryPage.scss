@@ -45,3 +45,21 @@
 .description-component {
   padding: 20px 0;
 }
+
+@media (max-width: 1099px) {
+  .main-content {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .country-page {
+    grid-template-columns: 1fr;
+  }
+  .side-bar {
+    text-align: center;
+    position: unset;
+    border-right: none;
+    height: unset;
+  }
+}

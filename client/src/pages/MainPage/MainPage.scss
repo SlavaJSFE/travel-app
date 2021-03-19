@@ -38,3 +38,17 @@
   font-size: 18px;
   line-height: 2.3;
 }
+
+@media (max-width: 1020px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 40px;
+  }
+}

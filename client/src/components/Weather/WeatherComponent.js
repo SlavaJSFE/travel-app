@@ -22,7 +22,7 @@ export default function WeatherComponent({ weather }) {
       </div>
       <div className="weather__description">
         <div className="weather__icon-description">{description}</div>
-        <div>{`feels like ${Math.round(main.feels_like)}`}</div>
+        <div>{`${translate('feels like')} ${Math.round(main.feels_like)}`}</div>
         <div className="weather__wind-humidity">
           <span>{`${translate('Hum')}.: ${main.humidity}%`}</span>
           <span>{`${translate('Wind')}: ${Math.round(wind.speed)}m/s`}</span>

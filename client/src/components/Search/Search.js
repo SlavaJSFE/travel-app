@@ -33,7 +33,7 @@ export default function Search() {
 
   return (
     <form className="search" onSubmit={handleSubmit}>
-      <div>
+      <div className="search-complex">
         <input
           type="search"
           placeholder={`${translate('Search')}...`}
