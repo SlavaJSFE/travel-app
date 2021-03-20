@@ -4,6 +4,7 @@
         height: 400px;
         margin: 0 auto;
         position: relative;
+        z-index: 0;
     }
 
     &__btn {
@@ -17,7 +18,6 @@
         color: black;
         position: absolute;
         z-index: 1000;
-
         top: 80px;
         left: 10px;
     }

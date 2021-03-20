@@ -4,11 +4,17 @@ import Slide from './Slide';
 import Arrow from './Arrow';
 import Dots from './Dots';
 import './Slider.scss';
+import HideSlider from '../Gallery/HideSlider';
 
 const getWidth = () => window.innerWidth;
 
 const Slider = (props) => {
-  const { slides, isShowSlider } = props;
+  const {
+    slides,
+    isShowSlider,
+    autoPlay,
+    hideSlider,
+  } = props;
   const firstSlide = slides[0];
   const secondSlide = slides[1];
   const lastSlide = slides[slides.length - 1];
@@ -31,12 +37,12 @@ const Slider = (props) => {
   const isLastSlide = () => {
     if (Math.abs(translate) >= Math.abs(((slides.length - 1) * getWidth()))) return true;
     return false;
-  }
+  };
 
   const isFirstSlide = () => {
     if (translate === 0) return true;
-    return false
-  }
+    return false;
+  };
 
   const nextSlide = () => setState({
     ...state,
@@ -51,7 +57,6 @@ const Slider = (props) => {
   });
 
   const smoothTransition = () => {
-    // eslint-disable-next-line no-underscore-dangle
     let slides2 = [];
 
     if (activeSlide === slides.length - 1) {
@@ -103,28 +108,27 @@ const Slider = (props) => {
 
     let interval = null;
 
-    if (props.autoPlay) {
-      interval = setInterval(play, props.autoPlay * 1000);
+    if (autoPlay) {
+      interval = setInterval(play, autoPlay * 1000);
     }
 
     return () => {
       slider.removeEventListener('transitionend', transitionEnd);
       window.removeEventListener('resize', onResize);
 
-      if (props.autoPlay) {
+      if (autoPlay) {
         clearInterval(interval);
       }
     };
-  }, [props.autoPlay]);
+  }, [autoPlay]);
 
   useEffect(() => {
     if (transition === 0) setState({ ...state, transition: 0.45 });
   }, [state, transition]);
 
-  console.log({ state, slides, getWidth: getWidth() })
-
   return (
-    <div className="slider" ref={sliderRef} hidden={isShowSlider}>
+    <div className="slider" ref={sliderRef} hidden={isShowSlider} hideSlider={hideSlider}>
+      <HideSlider hideSlider={hideSlider} />
       <SliderContent
         translate={translate}
         transition={transition}
@@ -137,7 +141,6 @@ const Slider = (props) => {
 
       <Arrow direction="left" handleClick={prevSlide} />
       <Arrow direction="right" handleClick={nextSlide} />
-
       <Dots slides={slides} activeSlide={activeSlide} />
     </div>
   );

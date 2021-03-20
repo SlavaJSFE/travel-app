@@ -20,8 +20,6 @@ import fetchWeather from '../../redux/weather/actions';
 import fetchCurrency from '../../redux/currency/actions';
 import { removeData, fetchCountry } from '../../redux/countryData/actions';
 import Slider from '../../components/Slider/Slider';
-import ShowSlider from '../../components/Gallery/ShowSlider';
-import HideSlider from '../../components/Gallery/HideSlider';
 
 export default function CountryPage() {
   const weatherData = useSelector((state) => state.weather.data);
@@ -40,7 +38,6 @@ export default function CountryPage() {
   const [images, setImages] = useState([]);
   const [isShowSlider, setIsShowSlider] = useState(true);
   const country = countries.find((element) => element.name.toLowerCase() === name);
-  // const capital = `${translate('The capital')}: ${countryData[lang].capital}`;
 
   const [setCurrentCountry] = useState({});
 
@@ -98,10 +95,9 @@ export default function CountryPage() {
               </div>
               <CountryPhoto image={countryData.photo} />
               <Description info={countryData[lang].info} />
-              <ShowSlider showSlider={toggleSlider} />
-              <HideSlider hideSlider={toggleSlider} />
-              <ThumbnailGallery />
-              <Slider slides={images} isShowSlider={isShowSlider} />
+              {/* <ShowSlider showSlider={toggleSlider} /> */}
+              <ThumbnailGallery showSlider={toggleSlider} />
+              <Slider slides={images} isShowSlider={isShowSlider} hideSlider={toggleSlider} />
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>

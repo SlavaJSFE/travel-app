@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Thumbnail = ({ imgUrl, index, onClick, activePhoto }) => {
+const Thumbnail = ({
+  imgUrl, index, onClick, activePhoto,
+}) => {
   const clazz = index === Number(activePhoto) ? 'gallery-preview activGallery-preview' : 'gallery-preview';
   return (
     <div className={clazz}>

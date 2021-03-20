@@ -1,22 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
 
 const ShowSlider = ({ showSlider }) => (
-  // <button type="button" className="btn warrning" onClick={showSlider}>
-  //   SHOW
-  // </button>
-  <Button variant="outlined" color="primary" onClick={showSlider}>
-    SHOW
-  </Button>
+  <Button startIcon={<ZoomInIcon />} className="showSlider" variant="outlined" color="primary" onClick={showSlider} />
 );
 
 export default ShowSlider;

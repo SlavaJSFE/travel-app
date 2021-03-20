@@ -13,12 +13,57 @@
   border-radius: 50%;
 }
 .slider{
-  position: relative;
+  position: fixed;
   height: 100vh;
   width: 100vw;
-  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   overflow: hidden;
   white-space: nowrap;
+  z-index: 1;
+  // object-fit: contain;
+  //   position: fixed !important;
+  //   top: 0px !important;
+  //   right: 0px !important;
+  //   bottom: 0px !important;
+  //   left: 0px !important;
+  //   box-sizing: border-box !important;
+  //   min-width: 0px !important;
+  //   max-width: none !important;
+  //   min-height: 0px !important;
+  //   max-height: none !important;
+  //   width: 100% !important;
+  //   height: 100% !important;
+  //   transform: none !important;
+  //   margin: 0px !important;
+  //   z-index: 1;
+}
+.hideSlider{
+  position: fixed !important;
+  background-color: #ddd !important;
+  z-index: 2;
+  top: 2rem;
+  right: 2rem;
+}
+
+.showSlider{
+  position: absolute !important;
+  width: 2rem;
+  height: 2rem;
+  background-color: #DDDDDD !important;
+  margin: .5rem !important;
+  padding: 1.3rem 0 !important;
+}
+
+.MuiButton-iconSizeMedium > *:first-child {
+  font-size: 2rem !important;
+}
+.MuiButton-startIcon {
+  display: inherit;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .sliderContent{
   height: 100%;
@@ -57,3 +102,7 @@
 .right-arrow{
   right: 25px;
 }
+// ::-webkit-scrollbar {
+//   width: 0px;
+//   background: rgba(255, 255, 255, 0.0);
+// }

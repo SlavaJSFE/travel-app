@@ -1,19 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
+import CloseIcon from '@material-ui/icons/Close';
 
 const HideSlider = ({ hideSlider }) => (
-  <Button variant="outlined" onClick={hideSlider}>
-    HIDE
-  </Button>
+  <Button startIcon={<CloseIcon />} color="primary" variant="outlined" className="hideSlider" onClick={hideSlider}></Button>
 );
 
 export default HideSlider;
