@@ -19,6 +19,9 @@ import VideoComponent from '../../components/Video/VideoComponent';
 import fetchWeather from '../../redux/weather/actions';
 import fetchCurrency from '../../redux/currency/actions';
 import { removeData, fetchCountry } from '../../redux/countryData/actions';
+import Slider from '../../components/Slider/Slider';
+import ShowSlider from '../../components/Gallery/ShowSlider';
+import HideSlider from '../../components/Gallery/HideSlider';
 
 export default function CountryPage() {
   const weatherData = useSelector((state) => state.weather.data);
@@ -34,6 +37,8 @@ export default function CountryPage() {
   const translate = t;
   const { name } = useParams();
   const [loading, setLoading] = useState(true);
+  const [images, setImages] = useState([]);
+  const [isShowSlider, setIsShowSlider] = useState(true);
   const country = countries.find((element) => element.name.toLowerCase() === name);
   // const capital = `${translate('The capital')}: ${countryData[lang].capital}`;
 
@@ -55,13 +60,22 @@ export default function CountryPage() {
 
       dispatch(fetchWeather(capital, lang));
       dispatch(fetchCurrency(country.curr));
+
+      const imgs = countryData.gallery.map((thumbnailPhoto) => (
+        thumbnailPhoto.src
+      ));
+      setImages(imgs);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryLoading, countryData.country, lang]);
 
   useEffect(() => {
     if (!currencyLoading && !weatherLoading && !countryLoading) setLoading(false);
   }, [currencyLoading, weatherLoading, countryLoading]);
+
+  const toggleSlider = () => {
+    setIsShowSlider(!isShowSlider);
+  };
 
   return (
     <Container>
@@ -84,7 +98,10 @@ export default function CountryPage() {
               </div>
               <CountryPhoto image={countryData.photo} />
               <Description info={countryData[lang].info} />
+              <ShowSlider showSlider={toggleSlider} />
+              <HideSlider hideSlider={toggleSlider} />
               <ThumbnailGallery />
+              <Slider slides={images} isShowSlider={isShowSlider} />
               <MapComponent country={country} />
               <VideoComponent country={country.name} />
             </div>

@@ -8,7 +8,7 @@ import './Slider.scss';
 const getWidth = () => window.innerWidth;
 
 const Slider = (props) => {
-  const { slides } = props;
+  const { slides, isShowSlider } = props;
   const firstSlide = slides[0];
   const secondSlide = slides[1];
   const lastSlide = slides[slides.length - 1];
@@ -30,7 +30,7 @@ const Slider = (props) => {
 
   const isLastSlide = () => {
     if (Math.abs(translate) >= Math.abs(((slides.length - 1) * getWidth()))) return true;
-    return false
+    return false;
   }
 
   const isFirstSlide = () => {
@@ -124,7 +124,7 @@ const Slider = (props) => {
   console.log({ state, slides, getWidth: getWidth() })
 
   return (
-    <div className="slider" ref={sliderRef}>
+    <div className="slider" ref={sliderRef} hidden={isShowSlider}>
       <SliderContent
         translate={translate}
         transition={transition}
