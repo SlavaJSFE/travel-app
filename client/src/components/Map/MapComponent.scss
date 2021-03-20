@@ -28,3 +28,12 @@
     height: 100%;
 }
 
+@media (max-width: 767px) {
+  .map__container {
+    height: 300px;
+  }
+  .main-content {
+    padding: 0;
+  }
+}
+

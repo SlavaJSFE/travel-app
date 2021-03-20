@@ -5,7 +5,7 @@ import CountryPage from './pages/CountryPage/CountryPage';
 import MainPage from './pages/MainPage/MainPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
-import Profile from './components/profile/Profile';
+import Profile from './pages/Profile/Profile';
 
 export default function useRoutes() {
   const isAuth = useSelector((state) => state.user.isAuth);

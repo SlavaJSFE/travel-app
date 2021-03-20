@@ -10,8 +10,15 @@
     text-decoration: none;
   }
 }
-.divider {
-  width: 2px;
-  height: 100%;
-  background-color: $basic-color;
+.small-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+@media (max-width: 519px) {
+  .auth-buttons {
+    display: grid;
+    margin-right: 0;
+  }
 }
