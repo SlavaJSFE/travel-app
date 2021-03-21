@@ -23,23 +23,8 @@
   overflow: hidden;
   white-space: nowrap;
   z-index: 1;
-  // object-fit: contain;
-  //   position: fixed !important;
-  //   top: 0px !important;
-  //   right: 0px !important;
-  //   bottom: 0px !important;
-  //   left: 0px !important;
-  //   box-sizing: border-box !important;
-  //   min-width: 0px !important;
-  //   max-width: none !important;
-  //   min-height: 0px !important;
-  //   max-height: none !important;
-  //   width: 100% !important;
-  //   height: 100% !important;
-  //   transform: none !important;
-  //   margin: 0px !important;
-  //   z-index: 1;
 }
+
 .hideSlider{
   position: fixed !important;
   background-color: #ddd !important;
@@ -102,7 +87,3 @@
 .right-arrow{
   right: 25px;
 }
-// ::-webkit-scrollbar {
-//   width: 0px;
-//   background: rgba(255, 255, 255, 0.0);
-// }
