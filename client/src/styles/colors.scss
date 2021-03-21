@@ -1,0 +1,14 @@
+$main-color: #f50057;
+$footer-color: #1a237e;
+$basic-color: #ffffff;
+$divider-color: #adadad;
+$widget-color-main: #4c4f5f;
+$underline-color: #303f9f;
+
+@mixin widget {
+  width: 90%;
+  height: 190px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

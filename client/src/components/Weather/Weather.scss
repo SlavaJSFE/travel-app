@@ -1,0 +1,46 @@
+@import '../../styles/colors.scss';
+
+.weather-widget {
+  @include widget;
+}
+.weather {
+   &__temperature {
+       font-size: 4rem;
+       color: $widget-color-main; 
+
+       span {
+           font-size: 14px;
+       }
+   } 
+
+   &__city {
+       font-size: 2rem;
+       text-align: center;
+       color: $main-color;
+   }
+
+   &__icon {
+    text-align: center;
+       
+   }
+   &__left{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 30%;
+   }
+
+   &__description {
+    text-align: center;
+    font-size: 14px;
+   }
+   &__wind-humidity {
+    display: flex;
+    justify-content: space-around;
+   }
+}
+
+.owf {
+    font-size: 60px;
+    color: $widget-color-main;
+}

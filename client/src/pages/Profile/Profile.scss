@@ -1,0 +1,27 @@
+.profile {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: calc(100vh - 355px);
+}
+.profile-left {
+  
+}
+.avatar {
+  width: 200px;
+  margin: 30px auto;
+  
+  img {
+    width: 100%;
+  }
+}
+.upload-avatar {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0 50px;
+}
+.upload-input {
+  display: none;
+}
+.profile-title {
+  text-align: center;
+}

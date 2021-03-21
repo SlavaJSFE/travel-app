@@ -1,0 +1,24 @@
+@import '../../styles/colors.scss';
+
+.auth-buttons {
+  display: flex;
+  column-gap: 10px;
+  color: $basic-color;
+  margin-right: 15px;
+
+  a {
+    text-decoration: none;
+  }
+}
+.small-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+@media (max-width: 519px) {
+  .auth-buttons {
+    display: grid;
+    margin-right: 0;
+  }
+}
