@@ -95,7 +95,6 @@ export default function CountryPage() {
               </div>
               <CountryPhoto image={countryData.photo} />
               <Description info={countryData[lang].info} />
-              {/* <ShowSlider showSlider={toggleSlider} /> */}
               <ThumbnailGallery showSlider={toggleSlider} />
               <Slider slides={images} isShowSlider={isShowSlider} hideSlider={toggleSlider} />
               <MapComponent country={country} />
