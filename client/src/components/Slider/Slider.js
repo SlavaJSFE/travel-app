@@ -127,7 +127,7 @@ const Slider = (props) => {
   }, [state, transition]);
 
   return (
-    <div className="slider" ref={sliderRef} hidden={isShowSlider} hideSlider={hideSlider} scrollWheelZoom>
+    <div className="slider" ref={sliderRef} hidden={isShowSlider} hideSlider={hideSlider}>
       <HideSlider hideSlider={hideSlider} />
       <SliderContent
         translate={translate}
