@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import ActiveThumbnailWindow from './ActiveThumbnailWindow';
 import ThumbnailGrid from './ThumbnailGrid';
 import './gallery.scss';
+import ShowSlider from './ShowSlider';
 
-const ThumbnailGallery = () => {
+const ThumbnailGallery = (props) => {
+  const { showSlider } = props;
   const [thumbnails, setThumbnails] = useState([]);
   const [thumbnailPhotos, setThumbnailsPhoto] = useState([]);
   const [thumbnailDescription, setThumbnailsDescription] = useState([]);
@@ -43,8 +45,9 @@ const ThumbnailGallery = () => {
   ) : null);
 
   return (
-    <div className="country-gallery">
+    <div className="country-gallery" showSlider={showSlider}>
       <div className="left">{renderThumbnails()}</div>
+      <ShowSlider showSlider={showSlider} />
       <div className="right">{renderTextContent()}</div>
     </div>
   );
