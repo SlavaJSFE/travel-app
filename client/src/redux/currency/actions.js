@@ -19,7 +19,8 @@ const fetchCurrfail = (error) => ({
 const fetchcurrency = (curr = 'EUR') => (dispatch) => {
   dispatch(fetchCurrRequest);
 
-  axios.get(`http://api.exchangeratesapi.io/v1/latest?access_key=24748a894f8066572db39383ece2c362&base=${curr}`)
+  // axios.get(`http://api.exchangeratesapi.io/v1/latest?access_key=24748a894f8066572db39383ece2c362&base=${curr}`)
+  axios.get('https://openexchangerates.org/api/latest.json?app_id=5cabdbd7680d4c608c3ff9c1c197f93b')
     .then(
       (response) => {
         const { data } = response;
