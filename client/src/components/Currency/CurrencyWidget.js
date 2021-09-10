@@ -4,9 +4,17 @@ import { useTranslation } from 'react-i18next';
 
 import CurrencyRow from './CurrencyRow';
 
-export default function CurrencyWidget({ currency, code }) {
+export default function CurrencyWidget({ currency, code, curr }) {
   const { rates, base } = currency;
-  const { USD, RUB, EUR } = rates;
+  // KOSTYLE is begin
+  const { USD, RUB, EUR, PLN, NOK, CZK, CHF } = rates;
+  const c = {};
+  c.EUR = EUR;
+  c.PLN = PLN;
+  c.NOK = NOK;
+  c.CZK = CZK;
+  c.CHF = CHF;
+  const cur = c[curr];
   const { t } = useTranslation();
   const translate = t;
 
@@ -15,10 +23,11 @@ export default function CurrencyWidget({ currency, code }) {
       <div className="currency-title">
         {translate('Currency Exchange')}
       </div>
-      <CurrencyRow code={code} base={base} rate={1} />
-      <CurrencyRow code="EU" base="EUR" rate={base === 'EUR' ? 1 : EUR.toFixed(2)} />
-      <CurrencyRow code="US" base="USD" rate={USD.toFixed(2)} />
-      <CurrencyRow code="RU" base="RUB" rate={RUB.toFixed(2)} />
+      <CurrencyRow code={code} base={curr} rate={1} />
+      <CurrencyRow code="EU" base="EUR" rate={base === 'EUR' ? 1 : ((USD * EUR) / cur).toFixed(2)} />
+      <CurrencyRow code="US" base="USD" rate={(USD / cur).toFixed(2)} />
+      <CurrencyRow code="RU" base="RUB" rate={((RUB * USD) / cur).toFixed(2)} />
     </div>
   );
+  // kostyle finish
 }

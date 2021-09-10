@@ -84,7 +84,7 @@ export default function CountryPage() {
               <div className="divider" />
               <WeatherComponent lang={lang} weather={weatherData} />
               <div className="divider" />
-              <CurrencyWidget currency={currencyData} code={country.code} />
+              <CurrencyWidget currency={currencyData} code={country.code} curr={country.curr} />
             </div>
             <div className="main-content">
               <div className="country-name">
