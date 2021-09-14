@@ -1,0 +1,54 @@
+@import '../../styles/colors.scss';
+
+.cards-container {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+.country-card {
+  transition: 0.4s;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+.country-card:hover {
+  transform: scale(1.04);
+  transition: 0.4s;
+  box-shadow: 0px 5px 20px 5px rgba(34, 60, 80, 0.2);
+}
+.card-names {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.card-country-name {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  color: $main-color;
+  text-decoration: underline #303f9f;
+}
+.card-country-capital {
+  font-size: 18px;
+  line-height: 2.3;
+}
+
+@media (max-width: 1020px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 40px;
+  }
+}

@@ -1,0 +1,64 @@
+@import '../../styles/colors.scss';
+
+.language {
+  display: flex;
+  align-items: flex-start;
+}
+.language-select {
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin-top: 6px;
+}
+.language-select:hover {
+  cursor: pointer;
+}
+.language-select:focus {
+  outline: none;
+  color: $footer-color;
+}
+.language-icon {
+  margin-top: 4px;
+  margin-right: 5px;
+}
+
+a.gflag {
+  vertical-align:middle;
+  font-size:32px;
+  padding:1px 0;
+  background-repeat:no-repeat;
+  background-image:url(//gtranslate.net/flags/32.png);
+}
+
+a.gflag img {
+  border:0;
+}
+
+a.gflag:hover {
+  background-image:url(//gtranslate.net/flags/32a.png);
+}
+
+#goog-gt-tt{display:none !important;}
+
+.goog-te-banner-frame {display:none !important;}
+
+.goog-te-menu-value:hover {text-decoration:none !important;}
+
+body {top:0 !important;}
+
+#google_translate_element2 {display:none!important;}
+
+.english{
+  background-position:-0px -0px;
+}
+.polish{
+  background-position:-200px -200px;
+}
+.russian{
+  background-position:-500px -200px;
+}
+
+.gTranslate{
+  position: absolute;
+  right: 15px;
+}

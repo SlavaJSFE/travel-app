@@ -1,0 +1,39 @@
+.map{
+    &__container {
+        width: 100%;
+        height: 400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 0;
+    }
+
+    &__btn {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        z-index: 1000;
+        top: 80px;
+        left: 10px;
+    }
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 767px) {
+  .map__container {
+    height: 300px;
+  }
+  .main-content {
+    padding: 0;
+  }
+}
+

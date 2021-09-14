@@ -1,0 +1,27 @@
+@import '../../styles/colors.scss';
+
+.currency-widget {
+  @include widget;
+  display: grid;
+  padding-left: 15px;
+
+}
+.currency {
+  &__row {
+    display: flex;
+    align-items: center;
+    color: $widget-color-main;
+
+    img {
+      margin-right: 10px;
+    }
+    span {
+      margin-right: 10px;
+    }
+  }
+}
+.currency-title {
+  font-size: 20px;
+  // text-align: center;
+  color: $main-color;
+}

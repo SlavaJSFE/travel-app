@@ -1,0 +1,59 @@
+@import '../../styles/colors.scss';
+
+.header {
+  background-image: url(../../assets/images/lake-1581879_1920.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  color: white;
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+.ribbon {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-width: 70px 40px 20px;
+  border-style: solid;
+  border-color: $main-color $main-color transparent;
+}
+.logo {
+  position: absolute;
+  top: -68px;
+  left: -33px;
+
+  img {
+    width: 65px;
+  }
+}
+.header-links {
+  display: flex;
+  margin: 5px 0;
+  height: max-content;
+}
+.motto {
+  font-size: 50px;
+  text-align: center;
+  margin: 5px 0 20px;
+  
+  span {
+    -webkit-text-stroke: 2px $basic-color;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.295);
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    background-size: cover;
+  }
+}
+
+@media (max-width: 519px) {
+  .header-links {
+    display: block;
+  }
+  .motto {
+    font-size: 35px;
+  }
+}
